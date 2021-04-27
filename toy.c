@@ -29,10 +29,20 @@ void printArray(int arr[], int size)
 	printf("\n");
 }
 
+int[] parseArray(char str[]) {
+	for (size_t i = 0; i < length; i++)
+	{
+
+	}
+}
+
 // Driver program to test above functions
 int main()
 {
-	int arr[] = { 64, 34, 25, 12, 22, 11, 90 };
+	char str[1000];
+	printf("Enter the array to be sorted delimited by spaces");
+	scanf("%s", str);
+	int arr[] = parseArray(str);
 	int n = sizeof(arr) / sizeof(arr[0]);
 	bubbleSort(arr, n);
 	printf("Sorted array: \n");
