@@ -63,7 +63,7 @@ int main(int argc, char **argv){
         std::cout << std::endl << "Sorted elements:" << std::endl;
         printVector(elements);
         long long microseconds = std::chrono::duration_cast<std::chrono::microseconds>(elapsed).count();
-        std::cout << std::endl << microseconds << std::endl;
+        std::cout << std::endl << std::endl << "Run time: " << microseconds << std::endl;
     }
 
     return 1;
