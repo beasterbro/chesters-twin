@@ -12,5 +12,22 @@ toy_file.o: toy_file.cpp
 	./toy_file ./test/test1.txt
 
 clean:
-	rm toy toy_input toy_command toy_file
+	rm toy_input toy_command toy_file toy_out.* toy_out_opt.*
 
+opt:
+	clang++ -emit-llvm -S toy_command.cpp -o toy_out_opt.ll
+	opt -mem2reg -S toy_out_opt.ll -o toy_out_opt.ll
+	llvm-as toy_out_opt.ll -o toy_out_opt.bc
+	llc toy_out_opt.bc -o toy_out_opt.s
+
+code:
+	clang++ -emit-llvm -S toy_command.cpp -o toy_out.ll
+	llvm-as toy_out.ll -o toy_out.bc
+	llc toy_out.bc -o toy_out.s
+
+ir:
+	clang++ -emit-llvm -S toy_command.cpp -o toy_out_ir.ll
+	llvm-as toy_out_ir.ll -o toy_out_ir.bc
+	llvm-dis toy_out_ir.bc -o toy_out_ir.ll
+	llvm-as toy_out_ir.ll -o toy_out_ir.bc
+	llc toy_out_ir.bc -o toy_out_ir.s
