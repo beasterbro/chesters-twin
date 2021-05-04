@@ -18,25 +18,22 @@ std::vector<int> parseInputString(std::string line) {
     return elements;
 }
 
-std::vector<int> swap(std::vector<int> elements, int indexA, int indexB) 
-{ 
-    int temp = elements.at(indexB);
-    elements.erase(elements.begin()+indexB);
-    elements.insert(elements.begin()+indexA, temp);
-    return elements; 
+void swap(std::vector<int> &elements, int index) { 
+    int temp = elements.at(index + 1);
+    elements.erase(elements.begin()+ index + 1);
+    elements.insert(elements.begin()+index, temp); 
 } 
   
 // A function to implement bubble sort 
-std::vector<int> bubbleSort(std::vector<int> elements, int n) 
+void bubbleSort(std::vector<int> &elements, int n) 
 { 
     int i, j; 
     for (i = 0; i < n-1; i++){
         // Last i elements are already in place 
         for (j = 0; j < n-i-1; j++) 
             if (elements.at(j) > elements.at(j+1)) 
-                elements = swap(elements, j, j+1); 
+                swap(elements, j); 
     }
-    return elements;
 }
 
 int main(){
@@ -44,10 +41,10 @@ int main(){
     std::cout << "Enter the array to be sorted delimited by spaces" << std::endl;
     getline(std::cin,line);
     std::vector<int> elements = parseInputString(line);
-    std::vector<int> sorted = bubbleSort(elements, elements.size());
+    bubbleSort(elements, elements.size());
     
     for (int i = 0; i < elements.size(); i++){
-        std::cout << sorted.at(i) << " ";
+        std::cout << elements.at(i) << " ";
     }
     std::cout << std::endl;
 }
