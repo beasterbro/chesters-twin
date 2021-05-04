@@ -1,4 +1,5 @@
 #include <bits/stdc++.h>
+#include <fstream>
 
 void parseInputString(std::vector<int> &elements, std::string line) {
     int value = 0;
@@ -37,20 +38,33 @@ void bubbleSort(std::vector<int> &elements, int n)
     }
 }
 
-int main(){
-    // Get input string of values to be sorted seperated by spaces
-    std::string line;
-    std::cout << "Enter the elements to be sorted delimited by spaces:" << std::endl;
-    getline(std::cin,line);
-
-    std::vector<int> elements;
-    parseInputString(elements, line); // Parse the string into the vector
-    bubbleSort(elements, elements.size()); // Sort the vector
-    
-    // Output the final product
-    std::cout << std::endl << "Sorted elements:" << std::endl;
+void printVector(std::vector<int> &elements) {
     for (int i = 0; i < elements.size(); i++) {
         std::cout << elements.at(i) << " ";
     }
-    std::cout << std::endl;
+}
+
+int main(int argc, char **argv){
+    // Get input string of values to be sorted from the given file
+    std::ifstream inputfile;
+    if(argc >= 2){
+        inputfile.open(argv[1]);
+        std::string line;
+        getline(inputfile,line);
+        std::cout << "Elements to be sorted:" << std::endl << line << std::endl;
+
+        std::vector<int> elements;
+        auto start = std::chrono::high_resolution_clock::now();
+        parseInputString(elements, line); // Parse the string into the vector
+        bubbleSort(elements, elements.size()); // Sort the vector
+        auto elapsed = std::chrono::high_resolution_clock::now() - start;
+        
+        // Output the final product
+        std::cout << std::endl << "Sorted elements:" << std::endl;
+        printVector(elements);
+        long long microseconds = std::chrono::duration_cast<std::chrono::microseconds>(elapsed).count();
+        std::cout << std::endl << microseconds << std::endl;
+    }
+
+    return 1;
 }
