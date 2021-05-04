@@ -15,7 +15,7 @@ clean:
 	rm toy_input toy_command toy_file toy_out.* toy_out_opt.*
 
 opt:
-	clang++ -emit-llvm -S toy_command.cpp -o toy_out_opt.ll
+	clang++ -emit-llvm -S toy_command.cpp -o toy_out_opt.ll -Xclang -disable-O0-optnone
 	opt -mem2reg -S toy_out_opt.ll -o toy_out_opt.ll
 	llvm-as toy_out_opt.ll -o toy_out_opt.bc
 	llc toy_out_opt.bc -o toy_out_opt.s
