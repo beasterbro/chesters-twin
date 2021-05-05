@@ -30,7 +30,37 @@ opt:
 opt2:
 	@echo "\033[94m opt2"
 	clang++ -emit-llvm -S toy_file.cpp -o toy_out_opt2.ll -Xclang -disable-O0-optnone -O1
+	opt -mem2reg -S toy_out_opt2.ll -o toy_out_opt2.ll 
+	llvm-as toy_out_opt2.ll -o toy_out_opt2.bc
+	llc toy_out_opt2.bc -o toy_out_opt2.s
+	clang++ -c toy_out_opt2.s -o toy_out_opt2.o
+	clang++ toy_out_opt2.o -o toy_out_opt2
+	./toy_out_opt test/test1.txt
+
+analy:
+	@echo "\033[94m opt2"
+	clang++ -emit-llvm -S toy_file.cpp -o toy_out_opt2.ll -Xclang -disable-O0-optnone
+	opt -S toy_out_opt2.ll -o toy_out_opt2.ll -print-callgraph
+	llvm-as toy_out_opt2.ll -o toy_out_opt2.bc
+	llc toy_out_opt2.bc -o toy_out_opt2.s
+	clang++ -c toy_out_opt2.s -o toy_out_opt2.o
+	clang++ toy_out_opt2.o -o toy_out_opt2
+	./toy_out_opt test/test1.txt
+
+transf:
+	@echo "\033[94m opt2"
+	clang++ -emit-llvm -S toy_file.cpp -o toy_out_opt2.ll -Xclang -disable-O0-optnone
 	opt -mem2reg -S toy_out_opt2.ll -o toy_out_opt2.ll
+	llvm-as toy_out_opt2.ll -o toy_out_opt2.bc
+	llc toy_out_opt2.bc -o toy_out_opt2.s
+	clang++ -c toy_out_opt2.s -o toy_out_opt2.o
+	clang++ toy_out_opt2.o -o toy_out_opt2
+	./toy_out_opt test/test1.txt
+
+util:
+	@echo "\033[94m opt2"
+	clang++ -emit-llvm -S toy_file.cpp -o toy_out_opt2.ll -Xclang -disable-O0-optnone
+	opt -S toy_out_opt2.ll -o toy_out_opt2.ll -view-cfg
 	llvm-as toy_out_opt2.ll -o toy_out_opt2.bc
 	llc toy_out_opt2.bc -o toy_out_opt2.s
 	clang++ -c toy_out_opt2.s -o toy_out_opt2.o
