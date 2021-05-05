@@ -19,7 +19,7 @@ clean:
 
 opt:
 	@echo "\033[92m opt"
-	clang++ -emit-llvm -S toy_file.cpp -o toy_out_opt.ll -Xclang -disable-O0-optnone
+	clang++ -emit-llvm -S toy_file.cpp -o toy_out_opt.ll -Xclang -disable-O0-optnone -Oz
 	opt -mem2reg -S toy_out_opt.ll -o toy_out_opt.ll
 	llvm-as toy_out_opt.ll -o toy_out_opt.bc
 	llc toy_out_opt.bc -o toy_out_opt.s
