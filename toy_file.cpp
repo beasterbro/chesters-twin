@@ -65,6 +65,4 @@ int main(int argc, char **argv){
         long long microseconds = std::chrono::duration_cast<std::chrono::microseconds>(elapsed).count();
         std::cout << std::endl << std::endl << "Run time: " << microseconds << std::endl;
     }
-
-    return 1;
 }
