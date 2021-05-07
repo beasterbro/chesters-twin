@@ -1,4 +1,4 @@
-main: toy_file.o opt opt2 code ir
+main: toy_file.o opt opt2 code ir util transf analy
 
 
 toy_input.o: toy_input.cpp
@@ -38,34 +38,35 @@ opt2:
 	./toy_out_opt test/test1.txt
 
 analy:
-	@echo "\033[94m opt2"
-	clang++ -emit-llvm -S toy_file.cpp -o toy_out_opt2.ll -Xclang -disable-O0-optnone
-	opt -S toy_out_opt2.ll -o toy_out_opt2.ll -print-callgraph
-	llvm-as toy_out_opt2.ll -o toy_out_opt2.bc
-	llc toy_out_opt2.bc -o toy_out_opt2.s
-	clang++ -c toy_out_opt2.s -o toy_out_opt2.o
-	clang++ toy_out_opt2.o -o toy_out_opt2
+	@echo "\033[37m analy"
+	clang++ -emit-llvm -S toy_file.cpp -o toy_out_opt4.ll -Xclang -disable-O0-optnone -print-function
+	opt -S toy_out_opt4.ll -o toy_out_opt4.ll 
+	llvm-as toy_out_opt4.ll -o toy_out_opt4.bc
+	llc toy_out_opt4.bc -o toy_out_opt4.s
+	clang++ -c toy_out_opt4.s -o toy_out_opt4.o
+	clang++ toy_out_opt4.o -o toy_out_opt4
 	./toy_out_opt test/test1.txt
 
 transf:
-	@echo "\033[94m opt2"
-	clang++ -emit-llvm -S toy_file.cpp -o toy_out_opt2.ll -Xclang -disable-O0-optnone
-	opt -mem2reg -S toy_out_opt2.ll -o toy_out_opt2.ll
-	llvm-as toy_out_opt2.ll -o toy_out_opt2.bc
-	llc toy_out_opt2.bc -o toy_out_opt2.s
-	clang++ -c toy_out_opt2.s -o toy_out_opt2.o
-	clang++ toy_out_opt2.o -o toy_out_opt2
+	@echo "\033[35m transf"
+	clang++ -emit-llvm -S toy_file.cpp -o toy_out_opt5.ll -Xclang -disable-O0-optnone
+	opt -S toy_out_opt5.ll -o toy_out_opt5.ll -adce
+	llvm-as toy_out_opt5.ll -o toy_out_opt5.bc
+	llc toy_out_opt5.bc -o toy_out_opt5.s
+	clang++ -c toy_out_opt5.s -o toy_out_opt5.o
+	clang++ toy_out_opt5.o -o toy_out_opt5
 	./toy_out_opt test/test1.txt
 
 util:
-	@echo "\033[94m opt2"
-	clang++ -emit-llvm -S toy_file.cpp -o toy_out_opt2.ll -Xclang -disable-O0-optnone
-	opt -S toy_out_opt2.ll -o toy_out_opt2.ll -view-cfg
-	llvm-as toy_out_opt2.ll -o toy_out_opt2.bc
-	llc toy_out_opt2.bc -o toy_out_opt2.s
-	clang++ -c toy_out_opt2.s -o toy_out_opt2.o
-	clang++ toy_out_opt2.o -o toy_out_opt2
+	@echo "\033[36m util"
+	clang++ -emit-llvm -S toy_file.cpp -o toy_out_opt3.ll -Xclang -disable-O0-optnone
+	opt -S toy_out_opt3.ll -o toy_out_opt3.ll
+	llvm-as toy_out_opt3.ll -o toy_out_opt3.bc
+	llc toy_out_opt3.bc -o toy_out_opt3.s
+	clang++ -c toy_out_opt3.s -o toy_out_opt3.o
+	clang++ toy_out_opt3.o -o toy_out_opt3
 	./toy_out_opt test/test1.txt
+	diff toy_out_opt7.s toy_out_opt3.s
 
 code:
 	@echo "\033[96m code"

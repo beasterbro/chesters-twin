@@ -1,0 +1,5 @@
+digraph "Dominator tree for '__clang_call_terminate' function" {
+	label="Dominator tree for '__clang_call_terminate' function";
+
+	Node0x1470fb0 [shape=record,label="{%1:\l  %2 = call i8* @__cxa_begin_catch(i8* %0) #3\l  call void @_ZSt9terminatev() #12\l  unreachable\l}"];
+}

@@ -1,0 +1,5 @@
+digraph "Dominator tree for '_ZNSt12_Vector_baseIiSaIiEE12_Vector_implD2Ev' function" {
+	label="Dominator tree for '_ZNSt12_Vector_baseIiSaIiEE12_Vector_implD2Ev' function";
+
+	Node0x1473ed0 [shape=record,label="{%1:\l  %2 = alloca %\"struct.std::_Vector_base\<int, std::allocator\<int\>\l... \>::_Vector_impl\"*, align 8\l  store %\"struct.std::_Vector_base\<int, std::allocator\<int\> \>::_Vector_impl\"*\l... %0, %\"struct.std::_Vector_base\<int, std::allocator\<int\> \>::_Vector_impl\"**\l... %2, align 8\l  %3 = load %\"struct.std::_Vector_base\<int, std::allocator\<int\>\l... \>::_Vector_impl\"*, %\"struct.std::_Vector_base\<int, std::allocator\<int\>\l... \>::_Vector_impl\"** %2, align 8\l  %4 = bitcast %\"struct.std::_Vector_base\<int, std::allocator\<int\>\l... \>::_Vector_impl\"* %3 to %\"class.std::allocator\"*\l  call void @_ZNSaIiED2Ev(%\"class.std::allocator\"* %4) #3\l  ret void\l}"];
+}

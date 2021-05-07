@@ -1,0 +1,5 @@
+digraph "Dominator tree for '_GLOBAL__sub_I_toy_file.cpp' function" {
+	label="Dominator tree for '_GLOBAL__sub_I_toy_file.cpp' function";
+
+	Node0x1473ed0 [shape=record,label="{%0:\l  call void @__cxx_global_var_init()\l  ret void\l}"];
+}

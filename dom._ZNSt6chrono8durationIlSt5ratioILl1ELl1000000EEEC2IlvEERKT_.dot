@@ -1,0 +1,5 @@
+digraph "Dominator tree for '_ZNSt6chrono8durationIlSt5ratioILl1ELl1000000EEEC2IlvEERKT_' function" {
+	label="Dominator tree for '_ZNSt6chrono8durationIlSt5ratioILl1ELl1000000EEEC2IlvEERKT_' function";
+
+	Node0x1471880 [shape=record,label="{%2:\l  %3 = alloca %\"struct.std::chrono::duration.5\"*, align 8\l  %4 = alloca i64*, align 8\l  store %\"struct.std::chrono::duration.5\"* %0,\l... %\"struct.std::chrono::duration.5\"** %3, align 8\l  store i64* %1, i64** %4, align 8\l  %5 = load %\"struct.std::chrono::duration.5\"*,\l... %\"struct.std::chrono::duration.5\"** %3, align 8\l  %6 = getelementptr inbounds %\"struct.std::chrono::duration.5\",\l... %\"struct.std::chrono::duration.5\"* %5, i32 0, i32 0\l  %7 = load i64*, i64** %4, align 8\l  %8 = load i64, i64* %7, align 8\l  store i64 %8, i64* %6, align 8\l  ret void\l}"];
+}

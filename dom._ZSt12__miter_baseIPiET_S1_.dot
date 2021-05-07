@@ -1,0 +1,5 @@
+digraph "Dominator tree for '_ZSt12__miter_baseIPiET_S1_' function" {
+	label="Dominator tree for '_ZSt12__miter_baseIPiET_S1_' function";
+
+	Node0x1473ed0 [shape=record,label="{%1:\l  %2 = alloca i32*, align 8\l  store i32* %0, i32** %2, align 8\l  %3 = load i32*, i32** %2, align 8\l  ret i32* %3\l}"];
+}
