@@ -1,4 +1,4 @@
-main: toy_file.o opt1 opt2 code ir transf analy util
+main: toy_file.o opt1 opt2 code ir transf analy util all
 
 clean:
 	rm toy_input toy_command toy_file toy_out.* toy_out_opt.* toy_out_opt2.*
@@ -95,7 +95,7 @@ util:
 
 all:
 	@echo "\033[36m util"
-	clang++ -emit-llvm -S toy_file.cpp -o toy_out_opt4.ll -Xclang -disable-O0-optnone -dot-callgraph -dot-cfg -dot-cfg-only -dot-dom -postdomtree -print-alias-sets -print-callgraph-sccs -print-callgraph -print-cfg-sccs -print-dom-info -print-module -print-function -aa-eval
+	clang++ -emit-llvm -S toy_file.cpp -o toy_out_opt4.ll -Xclang -disable-O0-optnone -dot-callgraph -Oz -dot-cfg -dot-cfg-only -dot-dom -postdomtree -print-alias-sets -print-callgraph-sccs -print-callgraph -print-cfg-sccs -print-dom-info -print-module -print-function -aa-eval
 	opt -S toy_out_opt5.ll -o toy_out_opt5.ll -strip-nondebug -tailcallelim -sink -strip -lowerinvoke -sroa -licm -loop-rotate 
 	opt -S toy_out_opt3.ll -o toy_out_opt3.ll
 	llvm-as toy_out_opt3.ll -o toy_out_opt3.bc
