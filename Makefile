@@ -1,4 +1,4 @@
-main: toy_file.o opt opt2 code ir util transf analy
+main: toy_file.o opt1 opt2 code ir transf analy util
 
 clean:
 	rm toy_input toy_command toy_file toy_out.* toy_out_opt.* toy_out_opt2.*
