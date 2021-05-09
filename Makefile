@@ -2,7 +2,7 @@ main: toy_file.o opt1 opt2 code ir transf analy util all diff
 
 clean:
 	#rm toy_input toy_command toy_file toy_out* toy_out_opt* toy_out_opt2.*
-	rm -rf ./compiled ./diff
+	rm -rf ./compiled ./diff ./dotfiles
 
 # Basic C code compilations without any optimizations
 toy_input.o: C++_test_code/toy_input.cpp
