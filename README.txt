@@ -20,8 +20,6 @@ make analy		-> runs all of the analysis tags that we found were effective
 make transf		-> runs all of the transform tags that we found were effective
 make util		-> runs all of the utility tags that we found were effetive (none)
 make all			-> runs all the optimization, analysis, transform, and utility transforms that we found were effective
-make 			-> runs make toy_file.o, code, ir, opt1, opt2, analy, transf, util, and all
-
-Refer to diff.txt for specifics but here we will talk about over all trends
-
-Ultility passes do not work on our machine that we use for testing due to a graphviz dependency, but the other passes work
+make diff		-> generates the diff files for the compiled code
+			-> there are separate tags for each of the diff commands but this will generate all of the diff files. 
+make 			-> runs make toy_file.o, code, ir, opt1, opt2, analy, transf, util, all, and diff
