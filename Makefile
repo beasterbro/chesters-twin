@@ -1,4 +1,4 @@
-main: toy_file.o opt1 opt2 code ir transf analy util all
+main: toy_file.o opt1 opt2 code ir transf analy util all diff
 
 clean:
 	#rm toy_input toy_command toy_file toy_out* toy_out_opt* toy_out_opt2.*
@@ -10,13 +10,13 @@ toy_input.o: C++_test_code/toy_input.cpp
 	g++ C++_test_code/toy_input.cpp -o compiled/base/toy_input
 
 toy_command.o: C++_test_code/toy_command.cpp
-	@echo "\033[93m base"
+	@echo "\033[93mbase"
 	mkdir -p ./compiled/base
 	g++ C++_test_code/toy_command.cpp -o compiled/base/toy_command
 	./compiled/base/toy_command 74 92 9 1 39 182 9 2 4 75 8 2 4 101 73
 
 toy_file.o: C++_test_code/toy_file.cpp test/test1.txt
-	@echo "\033[93m base"
+	@echo "\033[93mbase"
 	mkdir -p ./compiled/base
 	g++ C++_test_code/toy_file.cpp -o compiled/base/toy_file
 	./compiled/base/toy_file test/test1.txt
@@ -24,7 +24,7 @@ toy_file.o: C++_test_code/toy_file.cpp test/test1.txt
 # Main assignment
 # Generating non optimized assembly code and then running it
 code:
-	@echo "\033[96m code"
+	@echo "\033[96mcode"
 	mkdir -p ./compiled/assembly
 	clang++ -emit-llvm -S C++_test_code/toy_file.cpp -o compiled/assembly/toy_out_assembly.ll
 	llvm-as compiled/assembly/toy_out_assembly.ll -o compiled/assembly/toy_out_assembly.bc
@@ -35,7 +35,7 @@ code:
 
 # Generating the intermediate representation and then running it
 ir:
-	@echo "\033[95m ir"
+	@echo "\033[95mir"
 	mkdir -p ./compiled/ir
 	clang++ -emit-llvm -S C++_test_code/toy_file.cpp -o compiled/ir/toy_out_ir.ll
 	llvm-as compiled/ir/toy_out_ir.ll -o compiled/ir/toy_out_ir.bc
@@ -48,7 +48,7 @@ ir:
 
 # Best optimizations that we found
 opt1:
-	@echo "\033[94m opt2"
+	@echo "\033[94mopt1"
 	mkdir -p ./compiled/opt1
 	clang++ -emit-llvm -S C++_test_code/toy_file.cpp -o compiled/opt1/toy_out_opt1.ll -Xclang -disable-O0-optnone -O1
 	opt -mem2reg -S compiled/opt1/toy_out_opt1.ll -o compiled/opt1/toy_out_opt1.ll 
@@ -59,7 +59,7 @@ opt1:
 	./compiled/opt1/toy_out_opt1 test/test1.txt
 
 opt2:
-	@echo "\033[92m opt"
+	@echo "\033[92mopt2"
 	mkdir -p ./compiled/opt2
 	clang++ -emit-llvm -S C++_test_code/toy_file.cpp -o compiled/opt2/toy_out_opt2.ll -Xclang -disable-O0-optnone -Oz
 	opt -mem2reg -S compiled/opt2/toy_out_opt2.ll -o compiled/opt2/toy_out_opt2.ll
@@ -71,7 +71,7 @@ opt2:
 
 # Extra Credit Make options
 analy:
-	@echo "\033[37m analy"
+	@echo "\033[37manaly"
 	mkdir -p ./compiled/analysis
 	mkdir -p ./dotfiles/analysis_dotfiles
 	clang++ -emit-llvm -S C++_test_code/toy_file.cpp -o compiled/analysis/toy_out_analy.ll -Xclang -disable-O0-optnone 
@@ -84,7 +84,7 @@ analy:
 	./compiled/analysis/toy_out_analy test/test1.txt
 
 transf:
-	@echo "\033[35m transf"
+	@echo "\033[35mtransf"
 	mkdir -p ./compiled/transform
 	clang++ -emit-llvm -S C++_test_code/toy_file.cpp -o compiled/transform/toy_out_transf.ll -Xclang -disable-O0-optnone 
 	opt -S compiled/transform/toy_out_transf.ll -o compiled/transform/toy_out_transf.ll -strip-nondebug -tailcallelim -sink -strip -lowerinvoke -sroa -licm -loop-rotate 
@@ -95,7 +95,7 @@ transf:
 	./compiled/transform/toy_out_transf test/test1.txt
 
 util:
-	@echo "\033[36m util"
+	@echo "\033[36mutil"
 	mkdir -p ./compiled/utility
 	clang++ -emit-llvm -S C++_test_code/toy_file.cpp -o compiled/utility/toy_out_util.ll -Xclang -disable-O0-optnone
 	opt -S compiled/utility/toy_out_util.ll -o compiled/utility/toy_out_util.ll
@@ -106,7 +106,7 @@ util:
 	./compiled/utility/toy_out_util test/test1.txt
 
 all:
-	@echo "\033[38m all"
+	@echo "\033[38mall"
 	mkdir -p ./compiled/all
 	mkdir -p ./dotfiles/all_run_dotfiles
 	clang++ -emit-llvm -S C++_test_code/toy_file.cpp -o compiled/all/toy_out_all.ll -Xclang -disable-O0-optnone -Oz
@@ -120,6 +120,7 @@ all:
 	./compiled/all/toy_out_all test/test1.txt
 
 diff: main
+	@echo "\033[38mGenerating diff files"
 	mkdir ./diff
 	diff compiled/assembly/toy_out_assembly.s compiled/ir/toy_out_ir.s >> diff/ir_diff.txt
 	diff compiled/assembly/toy_out_assembly.s compiled/opt1/toy_out_opt1.s >> diff/opt1_diff.txt
