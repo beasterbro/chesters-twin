@@ -126,7 +126,7 @@ diff_setup:
 	mkdir -p ./diff
 
 diff_ir: diff_setup
-	diff compiled/ir/toy_out_ir.s compiled/assembly/toy_out_assembly.s >> diff/ir_diff.txt; [ $$? -eq 1 ]
+	diff compiled/ir/toy_out_ir.s compiled/assembly/toy_out_assembly.s >> diff/ir_diff.txt
 
 diff_opt1: diff_setup
 	diff compiled/opt1/toy_out_opt1.s compiled/assembly/toy_out_assembly.s >> diff/opt1_diff.txt; [ $$? -eq 1 ]
