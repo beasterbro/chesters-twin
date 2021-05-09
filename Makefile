@@ -73,8 +73,8 @@ opt2:
 analy:
 	@echo "\033[37m analy"
 	mkdir -p ./compiled/analysis
-	clang++ -emit-llvm -S C++_test_code/toy_file.cpp -o compiled/analysis/toy_out_analy.ll -Xclang -disable-O0-optnone -dot-callgraph -dot-cfg -dot-cfg-only -dot-dom -postdomtree -print-alias-sets -print-callgraph-sccs -print-callgraph -print-cfg-sccs -print-dom-info -print-module -print-function -aa-eval
-	opt -S compiled/analysis/toy_out_analy.ll -o compiled/analysis/toy_out_analy.ll 
+	clang++ -emit-llvm -S C++_test_code/toy_file.cpp -o compiled/analysis/toy_out_analy.ll -Xclang -disable-O0-optnone 
+	opt -S compiled/analysis/toy_out_analy.ll -o compiled/analysis/toy_out_analy.ll -dot-callgraph -dot-cfg -dot-cfg-only -dot-dom -postdomtree -print-alias-sets -print-callgraph-sccs -print-callgraph -print-cfg-sccs -print-dom-info -print-module -print-function -aa-eval
 	llvm-as compiled/analysis/toy_out_analy.ll -o compiled/analysis/toy_out_analy.bc
 	llc compiled/analysis/toy_out_analy.bc -o compiled/analysis/toy_out_analy.s
 	clang++ -c compiled/analysis/toy_out_analy.s -o compiled/analysis/toy_out_analy.o
