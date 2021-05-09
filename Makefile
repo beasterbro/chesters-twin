@@ -49,7 +49,7 @@ opt1:
 	llc toy_out_opt2.bc -o toy_out_opt2.s
 	clang++ -c toy_out_opt2.s -o toy_out_opt2.o
 	clang++ toy_out_opt2.o -o toy_out_opt2
-	./toy_out_opt test/test1.txt
+	./toy_out_opt2 test/test1.txt
 
 opt2:
 	@echo "\033[92m opt"
@@ -70,7 +70,7 @@ analy:
 	llc toy_out_opt4.bc -o toy_out_opt4.s
 	clang++ -c toy_out_opt4.s -o toy_out_opt4.o
 	clang++ toy_out_opt4.o -o toy_out_opt4
-	./toy_out_opt test/test1.txt
+	./toy_out_opt4 test/test1.txt
 
 transf:
 	@echo "\033[35m transf"
@@ -80,7 +80,7 @@ transf:
 	llc toy_out_opt5.bc -o toy_out_opt5.s
 	clang++ -c toy_out_opt5.s -o toy_out_opt5.o
 	clang++ toy_out_opt5.o -o toy_out_opt5
-	./toy_out_opt test/test1.txt
+	./toy_out_opt5 test/test1.txt
 
 util:
 	@echo "\033[36m util"
@@ -90,18 +90,18 @@ util:
 	llc toy_out_opt3.bc -o toy_out_opt3.s
 	clang++ -c toy_out_opt3.s -o toy_out_opt3.o
 	clang++ toy_out_opt3.o -o toy_out_opt3
-	./toy_out_opt test/test1.txt
+	./toy_out_opt3 test/test1.txt
 	diff toy_out_opt7.s toy_out_opt3.s
 
 all:
-	@echo "\033[36m util"
-	clang++ -emit-llvm -S toy_file.cpp -o toy_out_opt4.ll -Xclang -disable-O0-optnone -dot-callgraph -Oz -dot-cfg -dot-cfg-only -dot-dom -postdomtree -print-alias-sets -print-callgraph-sccs -print-callgraph -print-cfg-sccs -print-dom-info -print-module -print-function -aa-eval
-	opt -S toy_out_opt5.ll -o toy_out_opt5.ll -strip-nondebug -tailcallelim -sink -strip -lowerinvoke -sroa -licm -loop-rotate 
-	opt -S toy_out_opt3.ll -o toy_out_opt3.ll
-	llvm-as toy_out_opt3.ll -o toy_out_opt3.bc
-	llc toy_out_opt3.bc -o toy_out_opt3.s
-	clang++ -c toy_out_opt3.s -o toy_out_opt3.o
-	clang++ toy_out_opt3.o -o toy_out_opt3
-	./toy_out_opt test/test1.txt
-	diff toy_out_opt7.s toy_out_opt3.s
+	@echo "\033[38m util"
+	clang++ -emit-llvm -S toy_file.cpp -o toy_out_opt8.ll -Xclang -disable-O0-optnone -dot-callgraph -Oz -dot-cfg -dot-cfg-only -dot-dom -postdomtree -print-alias-sets -print-callgraph-sccs -print-callgraph -print-cfg-sccs -print-dom-info -print-module -print-function -aa-eval
+	opt -S toy_out_opt8.ll -o toy_out_opt8.ll -strip-nondebug -tailcallelim -sink -strip -lowerinvoke -sroa -licm -loop-rotate 
+	opt -S toy_out_opt8.ll -o toy_out_opt8.ll
+	llvm-as toy_out_opt8.ll -o toy_out_opt8.bc
+	llc toy_out_opt8.bc -o toy_out_opt8.s
+	clang++ -c toy_out_opt8.s -o toy_out_opt8.o
+	clang++ toy_out_opt8.o -o toy_out_opt8
+	./toy_out_opt8 test/test1.txt
+	diff toy_out_opt8.s toy_out_opt3.s
 
