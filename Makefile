@@ -119,13 +119,29 @@ all:
 	clang++ compiled/all/toy_out_all.o -o compiled/all/toy_out_all
 	./compiled/all/toy_out_all test/test1.txt
 
-diff: 
+diff: diff_setup diff_ir diff_opt1 diff_opt2 diff_analy diff_transf diff_util diff_all
+
+diff_setup: 
 	@echo "\033[38mGenerating diff files"
 	mkdir -p ./diff
+
+diff_ir: diff_setup
 	diff compiled/ir/toy_out_ir.s compiled/assembly/toy_out_assembly.s >> diff/ir_diff.txt
+
+diff_opt1: diff_setup
 	diff compiled/opt1/toy_out_opt1.s compiled/assembly/toy_out_assembly.s >> diff/opt1_diff.txt
+
+diff_opt2: diff_setup
 	diff compiled/opt2/toy_out_opt2.s compiled/assembly/toy_out_assembly.s >> diff/opt2_diff.txt
+	
+diff_analy: diff_setup
 	diff compiled/analysis/toy_out_analy.s compiled/assembly/toy_out_assembly.s >> diff/analysis_diff.txt
+
+diff_transf: diff_setup
 	diff compiled/transform/toy_out_transf.s compiled/assembly/toy_out_assembly.s >> diff/transform_diff.txt
+
+diff_util: diff_setup
 	diff compiled/utility/toy_out_util.s compiled/assembly/toy_out_assembly.s >> diff/utility_diff.txt
+
+diff_all: diff_setup
 	diff compiled/all/toy_out_all.s compiled/assembly/toy_out_assembly.s >> diff/all_diff.txt
