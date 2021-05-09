@@ -1,0 +1,1719 @@
+39d38
+< 	pushq	%r15
+42,63c41,47
+< 	subq	$24, %rsp
+< 	.cfi_offset %rbx, -40
+< 	.cfi_offset %r14, -32
+< 	.cfi_offset %r15, -24
+< 	movq	%rsi, %r15
+< 	movq	%rdi, -40(%rbp)
+< 	movl	$0, -32(%rbp)
+< 	movl	$0, -28(%rbp)
+< 	leaq	-32(%rbp), %r14
+< 	jmp	.LBB1_1
+< 	.p2align	4, 0x90
+< .LBB1_3:                                #   in Loop: Header=BB1_1 Depth=1
+< 	movl	-32(%rbp), %eax
+< 	leal	(%rax,%rax,4), %ebx
+< 	movslq	-28(%rbp), %rsi
+< 	movq	%r15, %rdi
+< 	callq	_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm
+< 	movsbl	(%rax), %eax
+< 	leal	(%rax,%rbx,2), %eax
+< 	addl	$-48, %eax
+< 	movl	%eax, -32(%rbp)
+< 	addl	$1, -28(%rbp)
+---
+> 	subq	$16, %rsp
+> 	.cfi_offset %rbx, -32
+> 	.cfi_offset %r14, -24
+> 	movq	%rsi, %r14
+> 	movq	%rdi, -32(%rbp)
+> 	movl	$0, -24(%rbp)
+> 	movl	$0, -20(%rbp)
+65,66c49,50
+< 	movslq	-28(%rbp), %rbx
+< 	movq	%r15, %rdi
+---
+> 	movslq	-20(%rbp), %rbx
+> 	movq	%r14, %rdi
+69c53
+< 	jae	.LBB1_5
+---
+> 	jae	.LBB1_7
+71,72c55,56
+< 	movslq	-28(%rbp), %rsi
+< 	movq	%r15, %rdi
+---
+> 	movslq	-20(%rbp), %rsi
+> 	movq	%r14, %rdi
+76,80c60,74
+< 	testl	%eax, %eax
+< 	jne	.LBB1_3
+< # %bb.4:                                #   in Loop: Header=BB1_1 Depth=1
+< 	movq	-40(%rbp), %rdi
+< 	movq	%r14, %rsi
+---
+> 	cmpl	$0, %eax
+> 	je	.LBB1_4
+> # %bb.3:                                #   in Loop: Header=BB1_1 Depth=1
+> 	imull	$10, -24(%rbp), %ebx
+> 	movslq	-20(%rbp), %rsi
+> 	movq	%r14, %rdi
+> 	callq	_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm
+> 	movsbl	(%rax), %eax
+> 	subl	$48, %eax
+> 	addl	%eax, %ebx
+> 	movl	%ebx, -24(%rbp)
+> 	jmp	.LBB1_5
+> .LBB1_4:                                #   in Loop: Header=BB1_1 Depth=1
+> 	movq	-32(%rbp), %rdi
+> 	leaq	-24(%rbp), %rsi
+82,83c76,82
+< 	movl	$0, -32(%rbp)
+< 	addl	$1, -28(%rbp)
+---
+> 	movl	$0, -24(%rbp)
+> .LBB1_5:                                #   in Loop: Header=BB1_1 Depth=1
+> 	jmp	.LBB1_6
+> .LBB1_6:                                #   in Loop: Header=BB1_1 Depth=1
+> 	movl	-20(%rbp), %eax
+> 	addl	$1, %eax
+> 	movl	%eax, -20(%rbp)
+85,87c84,86
+< .LBB1_5:
+< 	movq	-40(%rbp), %rdi
+< 	leaq	-32(%rbp), %rsi
+---
+> .LBB1_7:
+> 	movq	-32(%rbp), %rdi
+> 	leaq	-24(%rbp), %rsi
+89c88
+< 	addq	$24, %rsp
+---
+> 	addq	$16, %rsp
+92d90
+< 	popq	%r15
+115d112
+< 	movq	%rdi, %rbx
+118,119c115,117
+< 	movq	8(%rdi), %rax
+< 	cmpq	16(%rdi), %rax
+---
+> 	movq	-32(%rbp), %rbx
+> 	movq	8(%rbx), %rax
+> 	cmpq	16(%rbx), %rax
+126c124,126
+< 	addq	$4, 8(%rbx)
+---
+> 	movq	8(%rbx), %rax
+> 	addq	$4, %rax
+> 	movq	%rax, 8(%rbx)
+132a133
+> 	movq	-24(%rbp), %rsi
+134d134
+< 	movq	%rax, %rsi
+159c159
+< 	subq	$88, %rsp
+---
+> 	subq	$104, %rsp
+163,164c163,166
+< 	movslq	%esi, %rsi
+< 	addq	$1, %rsi
+---
+> 	movq	-24(%rbp), %rdi
+> 	movl	-12(%rbp), %eax
+> 	addl	$1, %eax
+> 	movslq	%eax, %rsi
+167c169
+< 	movl	%eax, -16(%rbp)
+---
+> 	movl	%eax, -28(%rbp)
+169c171
+< 	movq	%rbx, %rdi
+---
+> 	movq	-24(%rbp), %rdi
+171,174d172
+< 	movq	%rax, -56(%rbp)
+< 	movslq	-12(%rbp), %rsi
+< 	leaq	-56(%rbp), %rdi
+< 	callq	_ZNK9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEplEl
+175a174
+> 	movslq	-12(%rbp), %rsi
+177d175
+< 	movl	$1, %esi
+180,181c178,183
+< 	leaq	-80(%rbp), %rdi
+< 	leaq	-72(%rbp), %rsi
+---
+> 	leaq	-72(%rbp), %rdi
+> 	movl	$1, %esi
+> 	callq	_ZNK9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEplEl
+> 	movq	%rax, -80(%rbp)
+> 	leaq	-88(%rbp), %rdi
+> 	leaq	-80(%rbp), %rsi
+183c185
+< 	movq	-80(%rbp), %rsi
+---
+> 	movq	-88(%rbp), %rsi
+186c188
+< 	movq	%rax, -96(%rbp)
+---
+> 	movq	%rax, -104(%rbp)
+188c190
+< 	movq	%rbx, %rdi
+---
+> 	movq	-24(%rbp), %rdi
+190c192
+< 	movq	%rax, -32(%rbp)
+---
+> 	movq	%rax, -40(%rbp)
+192c194
+< 	leaq	-32(%rbp), %rdi
+---
+> 	leaq	-40(%rbp), %rdi
+194,196c196,198
+< 	movq	%rax, -40(%rbp)
+< 	leaq	-48(%rbp), %rdi
+< 	leaq	-40(%rbp), %rsi
+---
+> 	movq	%rax, -48(%rbp)
+> 	leaq	-56(%rbp), %rdi
+> 	leaq	-48(%rbp), %rsi
+198,199c200
+< 	movq	-48(%rbp), %rsi
+< 	leaq	-16(%rbp), %rdx
+---
+> 	movq	-56(%rbp), %rsi
+200a202
+> 	leaq	-28(%rbp), %rdx
+202,203c204,205
+< 	movq	%rax, -88(%rbp)
+< 	addq	$88, %rsp
+---
+> 	movq	%rax, -96(%rbp)
+> 	addq	$104, %rsp
+227d228
+< 	movq	%rdi, %rbx
+229a231,233
+> 	movq	-24(%rbp), %rbx
+> 	movq	-16(%rbp), %rsi
+> 	movq	%rbx, %rdi
+258,260c262,265
+< 	movq	%rdi, %rbx
+< 	movq	%rsi, -32(%rbp)
+< 	movq	%rdi, -48(%rbp)
+---
+> 	movq	%rsi, -48(%rbp)
+> 	movq	%rdi, -40(%rbp)
+> 	movq	-40(%rbp), %rbx
+> 	movq	%rbx, %rdi
+266c271
+< 	leaq	-32(%rbp), %rdi
+---
+> 	leaq	-48(%rbp), %rdi
+272c277,278
+< 	movq	%rax, -40(%rbp)
+---
+> 	movq	%rax, -32(%rbp)
+> 	movq	-32(%rbp), %rsi
+274d279
+< 	movq	%rax, %rsi
+276a282
+> 	movq	-56(%rbp), %rax
+299,301c305,307
+< 	movq	%rdi, %rsi
+< 	movq	%rdi, -16(%rbp)
+< 	leaq	-8(%rbp), %rdi
+---
+> 	movq	%rdi, -8(%rbp)
+> 	movq	-8(%rbp), %rsi
+> 	leaq	-16(%rbp), %rdi
+303c309
+< 	movq	-8(%rbp), %rax
+---
+> 	movq	-16(%rbp), %rax
+325,330c331,339
+< 	movq	%rdi, -32(%rbp)
+< 	movq	%rsi, -24(%rbp)
+< 	shlq	$2, %rsi
+< 	addq	(%rdi), %rsi
+< 	movq	%rsi, -8(%rbp)
+< 	leaq	-16(%rbp), %rdi
+---
+> 	movq	%rdi, -24(%rbp)
+> 	movq	%rsi, -16(%rbp)
+> 	movq	-24(%rbp), %rax
+> 	movq	(%rax), %rax
+> 	movq	-16(%rbp), %rcx
+> 	shlq	$2, %rcx
+> 	addq	%rcx, %rax
+> 	movq	%rax, -8(%rbp)
+> 	leaq	-32(%rbp), %rdi
+333c342
+< 	movq	-16(%rbp), %rax
+---
+> 	movq	-32(%rbp), %rax
+357d365
+< 	movq	%rdi, %rbx
+360c368,369
+< 	movq	%rsi, %rdi
+---
+> 	movq	-24(%rbp), %rbx
+> 	movq	-16(%rbp), %rdi
+393d401
+< 	movq	%rdi, %rbx
+395c403
+< 	movq	%rdi, -168(%rbp)
+---
+> 	movq	%rdi, -136(%rbp)
+396a405,406
+> 	movq	-136(%rbp), %rbx
+> 	movq	%rbx, %rdi
+398c408
+< 	movq	%rax, -112(%rbp)
+---
+> 	movq	%rax, -120(%rbp)
+400c410
+< 	leaq	-112(%rbp), %rsi
+---
+> 	leaq	-120(%rbp), %rsi
+402c412
+< 	movq	%rax, -120(%rbp)
+---
+> 	movq	%rax, -128(%rbp)
+405c415
+< 	je	.LBB9_7
+---
+> 	je	.LBB9_8
+409c419
+< 	movq	%rax, -104(%rbp)
+---
+> 	movq	%rax, -112(%rbp)
+411c421
+< 	leaq	-104(%rbp), %rsi
+---
+> 	leaq	-112(%rbp), %rsi
+413,415c423,426
+< 	testb	%al, %al
+< 	je	.LBB9_3
+< # %bb.2:
+---
+> 	testb	$1, %al
+> 	jne	.LBB9_2
+> 	jmp	.LBB9_3
+> .LBB9_2:
+420,440c431,434
+< 	addq	$4, 8(%rbx)
+< 	jmp	.LBB9_8
+< .LBB9_7:
+< 	movq	%rbx, %rdi
+< 	callq	_ZNSt6vectorIiSaIiEE5beginEv
+< 	movq	%rax, -56(%rbp)
+< 	movq	%rbx, %rdi
+< 	callq	_ZNKSt6vectorIiSaIiEE6cbeginEv
+< 	movq	%rax, -48(%rbp)
+< 	leaq	-24(%rbp), %rdi
+< 	leaq	-48(%rbp), %rsi
+< 	callq	_ZN9__gnu_cxxmiIPKiSt6vectorIiSaIiEEEENS_17__normal_iteratorIT_T0_E15difference_typeERKS9_SC_
+< 	leaq	-56(%rbp), %rdi
+< 	movq	%rax, %rsi
+< 	callq	_ZNK9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEplEl
+< 	movq	%rax, -160(%rbp)
+< 	movq	-32(%rbp), %rdx
+< 	movq	%rbx, %rdi
+< 	movq	%rax, %rsi
+< 	callq	_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_
+< 	jmp	.LBB9_8
+---
+> 	movq	8(%rbx), %rax
+> 	addq	$4, %rax
+> 	movq	%rax, 8(%rbx)
+> 	jmp	.LBB9_7
+444c438
+< 	movq	%rax, -88(%rbp)
+---
+> 	movq	%rax, -96(%rbp)
+447c441
+< 	movq	%rax, -80(%rbp)
+---
+> 	movq	%rax, -88(%rbp)
+449c443
+< 	leaq	-80(%rbp), %rsi
+---
+> 	leaq	-88(%rbp), %rsi
+451c445
+< 	leaq	-88(%rbp), %rdi
+---
+> 	leaq	-96(%rbp), %rdi
+454c448
+< 	movq	%rax, -96(%rbp)
+---
+> 	movq	%rax, -104(%rbp)
+456c450
+< 	leaq	-152(%rbp), %r14
+---
+> 	leaq	-168(%rbp), %r14
+460,461c454,455
+< 	movq	-96(%rbp), %rax
+< 	movq	%rax, -72(%rbp)
+---
+> 	movq	-104(%rbp), %rax
+> 	movq	%rax, -80(%rbp)
+466c460,461
+< # %bb.4:
+---
+> 	jmp	.LBB9_4
+> .LBB9_4:
+469c464
+< 	movq	-72(%rbp), %rsi
+---
+> 	movq	-80(%rbp), %rsi
+475,476c470,472
+< # %bb.5:
+< 	leaq	-152(%rbp), %rdi
+---
+> 	jmp	.LBB9_5
+> .LBB9_5:
+> 	leaq	-168(%rbp), %rdi
+477a474,483
+> 	jmp	.LBB9_7
+> .LBB9_6:
+> .Ltmp4:
+> 	movq	%rax, -72(%rbp)
+> 	movl	%edx, -148(%rbp)
+> 	leaq	-168(%rbp), %rdi
+> 	callq	_ZNSt6vectorIiSaIiEE16_Temporary_valueD2Ev
+> 	jmp	.LBB9_10
+> .LBB9_7:
+> 	jmp	.LBB9_9
+479,481c485,506
+< 	movq	-120(%rbp), %rax
+< 	shlq	$2, %rax
+< 	addq	(%rbx), %rax
+---
+> 	movq	%rbx, %rdi
+> 	callq	_ZNSt6vectorIiSaIiEE5beginEv
+> 	movq	%rax, -56(%rbp)
+> 	movq	%rbx, %rdi
+> 	callq	_ZNKSt6vectorIiSaIiEE6cbeginEv
+> 	movq	%rax, -48(%rbp)
+> 	leaq	-24(%rbp), %rdi
+> 	leaq	-48(%rbp), %rsi
+> 	callq	_ZN9__gnu_cxxmiIPKiSt6vectorIiSaIiEEEENS_17__normal_iteratorIT_T0_E15difference_typeERKS9_SC_
+> 	leaq	-56(%rbp), %rdi
+> 	movq	%rax, %rsi
+> 	callq	_ZNK9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEplEl
+> 	movq	%rax, -64(%rbp)
+> 	movq	-32(%rbp), %rdx
+> 	movq	-64(%rbp), %rsi
+> 	movq	%rbx, %rdi
+> 	callq	_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_
+> .LBB9_9:
+> 	movq	(%rbx), %rax
+> 	movq	-128(%rbp), %rcx
+> 	shlq	$2, %rcx
+> 	addq	%rcx, %rax
+483c508
+< 	leaq	-128(%rbp), %rdi
+---
+> 	leaq	-144(%rbp), %rdi
+486c511
+< 	movq	-128(%rbp), %rax
+---
+> 	movq	-144(%rbp), %rax
+493c518
+< .LBB9_6:
+---
+> .LBB9_10:
+495,500c520
+< .Ltmp4:
+< 	movq	%rax, -64(%rbp)
+< 	movl	%edx, -132(%rbp)
+< 	leaq	-152(%rbp), %rdi
+< 	callq	_ZNSt6vectorIiSaIiEE16_Temporary_valueD2Ev
+< 	movq	-64(%rbp), %rdi
+---
+> 	movq	-72(%rbp), %rdi
+547,550d566
+< 	jmp	.LBB10_1
+< 	.p2align	4, 0x90
+< .LBB10_7:                               #   in Loop: Header=BB10_1 Depth=1
+< 	addl	$1, -16(%rbp)
+553,556c569,573
+< 	movl	-20(%rbp), %eax
+< 	addl	$-1, %eax
+< 	cmpl	%eax, -16(%rbp)
+< 	jge	.LBB10_8
+---
+> 	movl	-16(%rbp), %eax
+> 	movl	-20(%rbp), %ecx
+> 	subl	$1, %ecx
+> 	cmpl	%ecx, %eax
+> 	jge	.LBB10_10
+559,562d575
+< 	jmp	.LBB10_3
+< 	.p2align	4, 0x90
+< .LBB10_6:                               #   in Loop: Header=BB10_3 Depth=2
+< 	addl	$1, -12(%rbp)
+565,569c578,583
+< 	movl	-16(%rbp), %eax
+< 	notl	%eax
+< 	addl	-20(%rbp), %eax
+< 	cmpl	%eax, -12(%rbp)
+< 	jge	.LBB10_7
+---
+> 	movl	-12(%rbp), %eax
+> 	movl	-20(%rbp), %ecx
+> 	subl	-16(%rbp), %ecx
+> 	subl	$1, %ecx
+> 	cmpl	%ecx, %eax
+> 	jge	.LBB10_8
+576,577c590,592
+< 	movslq	-12(%rbp), %rsi
+< 	addq	$1, %rsi
+---
+> 	movl	-12(%rbp), %eax
+> 	addl	$1, %eax
+> 	movslq	%eax, %rsi
+585,586c600,614
+< 	jmp	.LBB10_6
+< .LBB10_8:
+---
+> .LBB10_6:                               #   in Loop: Header=BB10_3 Depth=2
+> 	jmp	.LBB10_7
+> .LBB10_7:                               #   in Loop: Header=BB10_3 Depth=2
+> 	movl	-12(%rbp), %eax
+> 	addl	$1, %eax
+> 	movl	%eax, -12(%rbp)
+> 	jmp	.LBB10_3
+> .LBB10_8:                               #   in Loop: Header=BB10_1 Depth=1
+> 	jmp	.LBB10_9
+> .LBB10_9:                               #   in Loop: Header=BB10_1 Depth=1
+> 	movl	-16(%rbp), %eax
+> 	addl	$1, %eax
+> 	movl	%eax, -16(%rbp)
+> 	jmp	.LBB10_1
+> .LBB10_10:
+612d639
+< 	.p2align	4, 0x90
+618c645
+< 	jae	.LBB11_3
+---
+> 	jae	.LBB11_4
+624c651
+< 	movl	$_ZSt4cout, %edi
+---
+> 	movabsq	$_ZSt4cout, %rdi
+626d652
+< 	movl	$.L.str, %esi
+627a654
+> 	movabsq	$.L.str, %rsi
+629c656,659
+< 	addl	$1, -12(%rbp)
+---
+> # %bb.3:                                #   in Loop: Header=BB11_1 Depth=1
+> 	movl	-12(%rbp), %eax
+> 	addl	$1, %eax
+> 	movl	%eax, -12(%rbp)
+631c661
+< .LBB11_3:
+---
+> .LBB11_4:
+654,655c684,687
+< 	movq	8(%rdi), %rax
+< 	subq	(%rdi), %rax
+---
+> 	movq	-8(%rbp), %rcx
+> 	movq	8(%rcx), %rax
+> 	movq	(%rcx), %rcx
+> 	subq	%rcx, %rax
+688c720
+< 	jl	.LBB13_23
+---
+> 	jl	.LBB13_29
+697c729,730
+< # %bb.2:
+---
+> 	jmp	.LBB13_2
+> .LBB13_2:
+706c739,740
+< # %bb.3:
+---
+> 	jmp	.LBB13_3
+> .LBB13_3:
+712c746,747
+< # %bb.4:
+---
+> 	jmp	.LBB13_4
+> .LBB13_4:
+714d748
+< 	movl	$_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_, %esi
+715a750
+> 	movl	$_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_, %esi
+718c753,754
+< # %bb.5:
+---
+> 	jmp	.LBB13_5
+> .LBB13_5:
+724c760,761
+< # %bb.6:
+---
+> 	jmp	.LBB13_6
+> .LBB13_6:
+726d762
+< 	movl	$_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_, %esi
+727a764
+> 	movl	$_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_, %esi
+730c767,768
+< # %bb.7:
+---
+> 	jmp	.LBB13_7
+> .LBB13_7:
+740c778,779
+< # %bb.8:
+---
+> 	jmp	.LBB13_8
+> .LBB13_8:
+746c785,786
+< # %bb.9:
+---
+> 	jmp	.LBB13_9
+> .LBB13_9:
+757c797,798
+< # %bb.10:
+---
+> 	jmp	.LBB13_10
+> .LBB13_10:
+765c806,807
+< # %bb.11:
+---
+> 	jmp	.LBB13_11
+> .LBB13_11:
+772c814,815
+< # %bb.12:
+---
+> 	jmp	.LBB13_12
+> .LBB13_12:
+774d816
+< 	movl	$.L.str.2, %esi
+775a818
+> 	movl	$.L.str.2, %esi
+778c821,822
+< # %bb.13:
+---
+> 	jmp	.LBB13_13
+> .LBB13_13:
+780d823
+< 	movl	$_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_, %esi
+781a825
+> 	movl	$_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_, %esi
+784c828,829
+< # %bb.14:
+---
+> 	jmp	.LBB13_14
+> .LBB13_14:
+789c834,835
+< # %bb.15:
+---
+> 	jmp	.LBB13_15
+> .LBB13_15:
+794c840,841
+< # %bb.16:
+---
+> 	jmp	.LBB13_16
+> .LBB13_16:
+800c847,848
+< # %bb.17:
+---
+> 	jmp	.LBB13_17
+> .LBB13_17:
+807c855,856
+< # %bb.18:
+---
+> 	jmp	.LBB13_18
+> .LBB13_18:
+809d857
+< 	movl	$_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_, %esi
+810a859
+> 	movl	$_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_, %esi
+813c862,863
+< # %bb.19:
+---
+> 	jmp	.LBB13_19
+> .LBB13_19:
+815d864
+< 	movl	$.L.str.3, %esi
+816a866
+> 	movl	$.L.str.3, %esi
+819c869,870
+< # %bb.20:
+---
+> 	jmp	.LBB13_20
+> .LBB13_20:
+825c876,877
+< # %bb.21:
+---
+> 	jmp	.LBB13_21
+> .LBB13_21:
+827d878
+< 	movl	$_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_, %esi
+828a880
+> 	movl	$_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_, %esi
+831c883,884
+< # %bb.22:
+---
+> 	jmp	.LBB13_22
+> .LBB13_22:
+835a889
+> 	jmp	.LBB13_29
+837,853d890
+< 	leaq	-688(%rbp), %rdi
+< 	callq	_ZNSt14basic_ifstreamIcSt11char_traitsIcEED1Ev
+< 	movl	-32(%rbp), %eax
+< 	addq	$680, %rsp              # imm = 0x2A8
+< 	popq	%rbx
+< 	popq	%rbp
+< 	.cfi_def_cfa %rsp, 8
+< 	retq
+< .LBB13_26:
+< 	.cfi_def_cfa %rbp, 16
+< .Ltmp23:
+< 	movq	%rax, -24(%rbp)
+< 	movl	%edx, -12(%rbp)
+< 	leaq	-168(%rbp), %rdi
+< 	callq	_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev
+< 	jmp	.LBB13_27
+< .LBB13_29:
+866a904,910
+> 	jmp	.LBB13_27
+> .LBB13_26:
+> .Ltmp23:
+> 	movq	%rax, -24(%rbp)
+> 	movl	%edx, -12(%rbp)
+> 	leaq	-168(%rbp), %rdi
+> 	callq	_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev
+872a917,926
+> 	jmp	.LBB13_30
+> .LBB13_29:
+> 	leaq	-688(%rbp), %rdi
+> 	callq	_ZNSt14basic_ifstreamIcSt11char_traitsIcEED1Ev
+> 	movl	-32(%rbp), %eax
+> 	addq	$680, %rsp              # imm = 0x2A8
+> 	popq	%rbx
+> 	popq	%rbp
+> 	.cfi_def_cfa %rsp, 8
+> 	retq
+873a928
+> 	.cfi_def_cfa %rbp, 16
+875a931
+> # %bb.31:
+934a991
+> 	movq	-8(%rbp), %rdi
+958a1016
+> 	movq	-32(%rbp), %rdi
+967a1026
+> 	movq	-40(%rbp), %rax
+989a1049
+> 	movq	-8(%rbp), %rdi
+991a1052
+> 	movq	-16(%rbp), %rax
+1013c1074,1075
+< 	movq	(%rdi), %rax
+---
+> 	movq	-8(%rbp), %rax
+> 	movq	(%rax), %rax
+1043,1046c1105,1109
+< 	movq	%rdi, %rbx
+< 	movq	%rdi, -48(%rbp)
+< 	movq	(%rdi), %r14
+< 	movq	8(%rdi), %r15
+---
+> 	movq	%rdi, -40(%rbp)
+> 	movq	-40(%rbp), %rbx
+> 	movq	(%rbx), %r14
+> 	movq	8(%rbx), %r15
+> 	movq	%rbx, %rdi
+1054c1117,1118
+< # %bb.1:
+---
+> 	jmp	.LBB18_1
+> .LBB18_1:
+1068c1132
+< 	movl	%edx, -36(%rbp)
+---
+> 	movl	%edx, -44(%rbp)
+1070a1135
+> # %bb.3:
+1114a1180
+> 	movq	-8(%rbp), %rdi
+1139d1204
+< 	movq	%rdi, %rbx
+1140a1206,1207
+> 	movq	-16(%rbp), %rbx
+> 	movq	%rbx, %rdi
+1166a1234
+> 	movq	-8(%rbp), %rdi
+1189,1191c1257,1260
+< 	xorps	%xmm0, %xmm0
+< 	movups	%xmm0, (%rdi)
+< 	movq	$0, 16(%rdi)
+---
+> 	movq	-8(%rbp), %rax
+> 	movq	$0, (%rax)
+> 	movq	$0, 8(%rax)
+> 	movq	$0, 16(%rax)
+1234c1303
+< 	movq	%rdi, -56(%rbp)
+---
+> 	movq	%rdi, -48(%rbp)
+1236c1305,1306
+< 	movq	(%rdi), %rax
+---
+> 	movq	-48(%rbp), %rax
+> 	movq	(%rax), %rax
+1248c1318
+< 	leaq	-48(%rbp), %rdi
+---
+> 	leaq	-56(%rbp), %rdi
+1251c1321
+< 	movq	-48(%rbp), %rax
+---
+> 	movq	-56(%rbp), %rax
+1274c1344,1345
+< 	movq	(%rdi), %rax
+---
+> 	movq	-8(%rbp), %rax
+> 	movq	(%rax), %rax
+1275a1347
+> 	movq	-16(%rbp), %rax
+1296c1368,1369
+< 	movq	(%rdi), %rax
+---
+> 	movq	-8(%rbp), %rax
+> 	movq	(%rax), %rax
+1318,1319c1391,1394
+< 	movq	(%rsi), %rax
+< 	movq	%rax, (%rdi)
+---
+> 	movq	-16(%rbp), %rax
+> 	movq	-8(%rbp), %rcx
+> 	movq	(%rcx), %rcx
+> 	movq	%rcx, (%rax)
+1340c1415,1416
+< 	movq	%rdi, -24(%rbp)
+---
+> 	movq	%rdi, -16(%rbp)
+> 	movq	-16(%rbp), %rdi
+1342,1349c1418,1422
+< 	movabsq	$2361183241434822607, %rcx # imm = 0x20C49BA5E353F7CF
+< 	imulq	%rcx
+< 	movq	%rdx, %rax
+< 	shrq	$63, %rax
+< 	sarq	$7, %rdx
+< 	addq	%rax, %rdx
+< 	movq	%rdx, -8(%rbp)
+< 	leaq	-16(%rbp), %rdi
+---
+> 	cqto
+> 	movl	$1000, %ecx             # imm = 0x3E8
+> 	idivq	%rcx
+> 	movq	%rax, -8(%rbp)
+> 	leaq	-24(%rbp), %rdi
+1352c1425
+< 	movq	-16(%rbp), %rax
+---
+> 	movq	-24(%rbp), %rax
+1375,1376c1448,1451
+< 	movq	(%rsi), %rax
+< 	movq	%rax, (%rdi)
+---
+> 	movq	-16(%rbp), %rax
+> 	movq	-8(%rbp), %rcx
+> 	movq	(%rcx), %rcx
+> 	movq	%rcx, (%rax)
+1401,1402d1475
+< 	movq	%rsi, %r14
+< 	movq	%rdi, %rbx
+1406c1479,1481
+< 	movq	%rdx, %rdi
+---
+> 	movq	-40(%rbp), %r14
+> 	movq	-32(%rbp), %rbx
+> 	movq	-24(%rbp), %rdi
+1408,1409c1483,1484
+< 	movq	%rbx, %rdi
+< 	movq	%r14, %rsi
+---
+> 	movq	%r14, %rdi
+> 	movq	%rbx, %rsi
+1436d1510
+< 	pushq	%r13
+1439,1442c1513,1515
+< 	subq	$88, %rsp
+< 	.cfi_offset %rbx, -56
+< 	.cfi_offset %r12, -48
+< 	.cfi_offset %r13, -40
+---
+> 	subq	$80, %rsp
+> 	.cfi_offset %rbx, -48
+> 	.cfi_offset %r12, -40
+1445,1447c1518,1519
+< 	movq	%rdi, %rbx
+< 	movq	%rsi, -112(%rbp)
+< 	movq	%rdi, -120(%rbp)
+---
+> 	movq	%rsi, -64(%rbp)
+> 	movq	%rdi, -112(%rbp)
+1448a1521,1522
+> 	movq	-112(%rbp), %r14
+> 	movq	%r14, %rdi
+1450c1524
+< 	movl	$.L.str.4, %edx
+---
+> 	movabsq	$.L.str.4, %rdx
+1453,1455c1527,1529
+< 	movq	(%rbx), %rax
+< 	movq	%rax, -64(%rbp)
+< 	movq	8(%rbx), %rax
+---
+> 	movq	(%r14), %rax
+> 	movq	%rax, -56(%rbp)
+> 	movq	8(%r14), %rax
+1457c1531
+< 	movq	%rbx, %rdi
+---
+> 	movq	%r14, %rdi
+1460c1534
+< 	leaq	-112(%rbp), %r14
+---
+> 	leaq	-64(%rbp), %rdi
+1462d1535
+< 	movq	%r14, %rdi
+1466c1539
+< 	movq	%rbx, %rdi
+---
+> 	movq	%r14, %rdi
+1468d1540
+< 	movq	%rax, -56(%rbp)
+1470,1471c1542,1547
+< 	movq	-88(%rbp), %rcx
+< 	leaq	(%rax,%rcx,4), %r15
+---
+> 	movq	-48(%rbp), %rax
+> 	movq	%rax, -40(%rbp)
+> 	movq	-48(%rbp), %rbx
+> 	movq	-88(%rbp), %rax
+> 	shlq	$2, %rax
+> 	addq	%rax, %rbx
+1474,1475c1550,1551
+< 	movq	%rbx, %rdi
+< 	movq	%r15, %rsi
+---
+> 	movq	%r14, %rdi
+> 	movq	%rbx, %rsi
+1478,1480c1554,1556
+< 	movq	$0, -48(%rbp)
+< 	movq	-64(%rbp), %r15
+< 	movq	%r14, %rdi
+---
+> 	movq	$0, -40(%rbp)
+> 	movq	-56(%rbp), %r15
+> 	leaq	-64(%rbp), %rdi
+1482,1484c1558,1560
+< 	movq	(%rax), %r12
+< 	movq	-56(%rbp), %r13
+< 	movq	%rbx, %rdi
+---
+> 	movq	(%rax), %rbx
+> 	movq	-48(%rbp), %r12
+> 	movq	%r14, %rdi
+1487,1488c1563,1564
+< 	movq	%r12, %rsi
+< 	movq	%r13, %rdx
+---
+> 	movq	%rbx, %rsi
+> 	movq	%r12, %rdx
+1490a1567,1568
+> 	movq	%rax, -40(%rbp)
+> 	movq	-40(%rbp), %rax
+1492,1493c1570,1571
+< 	movq	%rax, -48(%rbp)
+< 	movq	%r14, %rdi
+---
+> 	movq	%rax, -40(%rbp)
+> 	leaq	-64(%rbp), %rdi
+1495c1573
+< 	movq	(%rax), %r14
+---
+> 	movq	(%rax), %rbx
+1497,1499c1575
+< 	movq	-48(%rbp), %r12
+< 	movq	%rbx, %rdi
+< 	callq	_ZNSt12_Vector_baseIiSaIiEE19_M_get_Tp_allocatorEv
+---
+> 	movq	-40(%rbp), %r12
+1500a1577,1578
+> 	callq	_ZNSt12_Vector_baseIiSaIiEE19_M_get_Tp_allocatorEv
+> 	movq	%rbx, %rdi
+1505,1508c1583,1587
+< 	movq	%rax, -48(%rbp)
+< 	movq	-64(%rbp), %rsi
+< 	movq	16(%rbx), %rdx
+< 	subq	%rsi, %rdx
+---
+> 	movq	%rax, -40(%rbp)
+> 	movq	-56(%rbp), %rsi
+> 	movq	16(%r14), %rdx
+> 	movq	-56(%rbp), %rax
+> 	subq	%rax, %rdx
+1510c1589
+< 	movq	%rbx, %rdi
+---
+> 	movq	%r14, %rdi
+1512,1513d1590
+< 	movq	-56(%rbp), %rax
+< 	movq	%rax, (%rbx)
+1515,1520c1592,1600
+< 	movq	%rax, 8(%rbx)
+< 	movq	-72(%rbp), %rax
+< 	shlq	$2, %rax
+< 	addq	-56(%rbp), %rax
+< 	movq	%rax, 16(%rbx)
+< 	addq	$88, %rsp
+---
+> 	movq	%rax, (%r14)
+> 	movq	-40(%rbp), %rax
+> 	movq	%rax, 8(%r14)
+> 	movq	-48(%rbp), %rax
+> 	movq	-72(%rbp), %rcx
+> 	shlq	$2, %rcx
+> 	addq	%rcx, %rax
+> 	movq	%rax, 16(%r14)
+> 	addq	$80, %rsp
+1523d1602
+< 	popq	%r13
+1546,1548c1625,1628
+< 	movq	%rdi, -16(%rbp)
+< 	leaq	8(%rdi), %rsi
+< 	leaq	-8(%rbp), %rdi
+---
+> 	movq	%rdi, -8(%rbp)
+> 	movq	-8(%rbp), %rsi
+> 	addq	$8, %rsi
+> 	leaq	-16(%rbp), %rdi
+1550c1630
+< 	movq	-8(%rbp), %rax
+---
+> 	movq	-16(%rbp), %rax
+1574d1653
+< 	movq	%rsi, %rbx
+1578c1657,1658
+< 	movq	%rdx, %rdi
+---
+> 	movq	-24(%rbp), %rbx
+> 	movq	-16(%rbp), %rdi
+1603d1682
+< 	movq	%rdi, %rax
+1604a1684
+> 	movq	-8(%rbp), %rax
+1629d1708
+< 	movq	%rdi, %r14
+1632a1712,1713
+> 	movq	-56(%rbp), %r14
+> 	movq	%r14, %rdi
+1639c1720
+< 	jb	.LBB35_6
+---
+> 	jae	.LBB35_2
+1640a1722,1724
+> 	movq	-48(%rbp), %rdi
+> 	callq	_ZSt20__throw_length_errorPKc
+> .LBB35_2:
+1651a1736
+> 	movq	-24(%rbp), %rbx
+1655,1656c1740,1741
+< 	jb	.LBB35_3
+< # %bb.2:
+---
+> 	jb	.LBB35_4
+> # %bb.3:
+1661,1662c1746,1747
+< 	jbe	.LBB35_4
+< .LBB35_3:
+---
+> 	jbe	.LBB35_5
+> .LBB35_4:
+1665,1667c1750
+< 	jmp	.LBB35_5
+< .LBB35_4:
+< 	movq	-24(%rbp), %rax
+---
+> 	jmp	.LBB35_6
+1668a1752,1753
+> 	movq	-24(%rbp), %rax
+> .LBB35_6:
+1675,1678d1759
+< .LBB35_6:
+< 	.cfi_def_cfa %rbp, 16
+< 	movq	-48(%rbp), %rdi
+< 	callq	_ZSt20__throw_length_errorPKc
+1699a1781
+> 	movq	-24(%rbp), %rdi
+1704c1786,1787
+< 	subq	(%rax), %rbx
+---
+> 	movq	(%rax), %rax
+> 	subq	%rax, %rbx
+1731,1733c1814,1817
+< 	testq	%rsi, %rsi
+< 	je	.LBB37_1
+< # %bb.2:
+---
+> 	movq	-16(%rbp), %rdi
+> 	cmpq	$0, -8(%rbp)
+> 	je	.LBB37_2
+> # %bb.1:
+1737c1821
+< .LBB37_1:
+---
+> .LBB37_2:
+1738a1823
+> 	jmp	.LBB37_3
+1764a1850,1853
+> 	movq	-32(%rbp), %rdi
+> 	movq	-24(%rbp), %rsi
+> 	movq	-16(%rbp), %rdx
+> 	movq	-8(%rbp), %rcx
+1786d1874
+< 	movq	%rdi, %rax
+1787a1876
+> 	movq	-8(%rbp), %rax
+1807d1895
+< 	movq	%rdi, %rax
+1808a1897
+> 	movq	-8(%rbp), %rax
+1830,1832c1919,1922
+< 	movq	%rsi, -16(%rbp)
+< 	movq	%rdx, -8(%rbp)
+< 	testq	%rsi, %rsi
+---
+> 	movq	%rsi, -8(%rbp)
+> 	movq	%rdx, -16(%rbp)
+> 	movq	-24(%rbp), %rdi
+> 	cmpq	$0, -8(%rbp)
+1835,1836c1925,1926
+< 	movq	-16(%rbp), %rsi
+< 	movq	-8(%rbp), %rdx
+---
+> 	movq	-8(%rbp), %rsi
+> 	movq	-16(%rbp), %rdx
+1860a1951
+> 	movq	-8(%rbp), %rdi
+1884,1887c1975,1980
+< 	movq	%rdi, -24(%rbp)
+< 	movq	%rsi, -16(%rbp)
+< 	movq	(%rdi), %rax
+< 	cmpq	(%rsi), %rax
+---
+> 	movq	%rdi, -16(%rbp)
+> 	movq	%rsi, -8(%rbp)
+> 	movq	-16(%rbp), %rax
+> 	movq	(%rax), %rax
+> 	movq	-8(%rbp), %rcx
+> 	cmpq	(%rcx), %rax
+1890c1983,1984
+< 	movq	-16(%rbp), %rax
+---
+> 	movq	-8(%rbp), %rax
+> 	movq	%rax, -24(%rbp)
+1893c1987,1988
+< 	movq	-24(%rbp), %rax
+---
+> 	movq	-16(%rbp), %rax
+> 	movq	%rax, -24(%rbp)
+1895,1896c1990
+< 	movq	%rax, -8(%rbp)
+< 	movq	-8(%rbp), %rax
+---
+> 	movq	-24(%rbp), %rax
+1922a2017
+> 	movq	-24(%rbp), %rdi
+1930c2025,2026
+< # %bb.1:
+---
+> 	jmp	.LBB44_1
+> .LBB44_1:
+1938a2035
+>                                         # kill: killed $rdx
+1981d2077
+< 	movq	%rdi, %rax
+1982a2079
+> 	movq	-8(%rbp), %rax
+2003a2101
+> 	movq	-8(%rbp), %rdi
+2025,2028c2123,2128
+< 	movq	%rdi, -24(%rbp)
+< 	movq	%rsi, -16(%rbp)
+< 	movq	(%rsi), %rax
+< 	cmpq	(%rdi), %rax
+---
+> 	movq	%rdi, -16(%rbp)
+> 	movq	%rsi, -8(%rbp)
+> 	movq	-8(%rbp), %rax
+> 	movq	(%rax), %rax
+> 	movq	-16(%rbp), %rcx
+> 	cmpq	(%rcx), %rax
+2031c2131,2132
+< 	movq	-16(%rbp), %rax
+---
+> 	movq	-8(%rbp), %rax
+> 	movq	%rax, -24(%rbp)
+2034c2135,2136
+< 	movq	-24(%rbp), %rax
+---
+> 	movq	-16(%rbp), %rax
+> 	movq	%rax, -24(%rbp)
+2036,2037c2138
+< 	movq	%rax, -8(%rbp)
+< 	movq	-8(%rbp), %rax
+---
+> 	movq	-24(%rbp), %rax
+2093a2195,2196
+> 	movq	-16(%rbp), %rdi
+> 	movq	-8(%rbp), %rsi
+2119,2120c2222
+< 	movq	%rsi, %rbx
+< 	movq	%rdi, -32(%rbp)
+---
+> 	movq	%rdi, -24(%rbp)
+2122c2224,2226
+< 	movq	%rdx, -24(%rbp)
+---
+> 	movq	%rdx, -32(%rbp)
+> 	movq	-24(%rbp), %rdi
+> 	movq	-16(%rbp), %rbx
+2125c2229
+< 	ja	.LBB51_2
+---
+> 	jbe	.LBB51_2
+2126a2231,2232
+> 	callq	_ZSt17__throw_bad_allocv
+> .LBB51_2:
+2135,2137d2240
+< .LBB51_2:
+< 	.cfi_def_cfa %rbp, 16
+< 	callq	_ZSt17__throw_bad_allocv
+2158a2262,2265
+> 	movq	-32(%rbp), %rdi
+> 	movq	-24(%rbp), %rsi
+> 	movq	-16(%rbp), %rdx
+> 	movq	-8(%rbp), %rcx
+2188a2296
+> 	movq	-48(%rbp), %rdi
+2225c2333
+< 	movq	%rsi, -40(%rbp)
+---
+> 	movq	%rsi, -32(%rbp)
+2227,2231c2335,2341
+< 	movq	%rcx, -32(%rbp)
+< 	subq	%rdi, %rsi
+< 	sarq	$2, %rsi
+< 	movq	%rsi, -8(%rbp)
+< 	testq	%rsi, %rsi
+---
+> 	movq	%rcx, -40(%rbp)
+> 	movq	-32(%rbp), %rax
+> 	movq	-24(%rbp), %rcx
+> 	subq	%rcx, %rax
+> 	sarq	$2, %rax
+> 	movq	%rax, -8(%rbp)
+> 	cmpq	$0, -8(%rbp)
+2240,2242c2350,2353
+< 	movq	-8(%rbp), %rax
+< 	shlq	$2, %rax
+< 	addq	-16(%rbp), %rax
+---
+> 	movq	-16(%rbp), %rax
+> 	movq	-8(%rbp), %rcx
+> 	shlq	$2, %rcx
+> 	addq	%rcx, %rax
+2263d2373
+< 	movq	%rdi, %rax
+2264a2375
+> 	movq	-8(%rbp), %rax
+2287a2399,2401
+> 	movq	-24(%rbp), %rdi
+> 	movq	-16(%rbp), %rsi
+> 	movq	-8(%rbp), %rdx
+2311,2313c2425,2427
+< 	movq	%rsi, -16(%rbp)
+< 	movq	%rdx, -8(%rbp)
+< 	movq	%rsi, %rdi
+---
+> 	movq	%rsi, -8(%rbp)
+> 	movq	%rdx, -16(%rbp)
+> 	movq	-8(%rbp), %rdi
+2337,2338c2451,2454
+< 	movq	(%rsi), %rax
+< 	movq	%rax, (%rdi)
+---
+> 	movq	-16(%rbp), %rax
+> 	movq	-8(%rbp), %rcx
+> 	movq	(%rcx), %rcx
+> 	movq	%rcx, (%rax)
+2363,2364d2478
+< 	movq	%rsi, %rbx
+< 	movq	%rdi, %r14
+2366a2481,2483
+> 	movq	-32(%rbp), %rbx
+> 	movq	-24(%rbp), %r14
+> 	movq	%rbx, %rdi
+2368,2369c2485,2486
+< 	cmpq	%rax, %rbx
+< 	jae	.LBB59_2
+---
+> 	cmpq	%rax, %r14
+> 	jb	.LBB59_2
+2370a2488,2496
+> 	movq	-24(%rbp), %r14
+> 	movq	%rbx, %rdi
+> 	callq	_ZNKSt6vectorIiSaIiEE4sizeEv
+> 	movabsq	$.L.str.5, %rdi
+> 	movq	%r14, %rsi
+> 	movq	%rax, %rdx
+> 	movb	$0, %al
+> 	callq	_ZSt24__throw_out_of_range_fmtPKcz
+> .LBB59_2:
+2377,2386d2502
+< .LBB59_2:
+< 	.cfi_def_cfa %rbp, 16
+< 	movq	-24(%rbp), %rbx
+< 	movq	%r14, %rdi
+< 	callq	_ZNKSt6vectorIiSaIiEE4sizeEv
+< 	movl	$.L.str.5, %edi
+< 	movq	%rbx, %rsi
+< 	movq	%rax, %rdx
+< 	xorl	%eax, %eax
+< 	callq	_ZSt24__throw_out_of_range_fmtPKcz
+2405,2406c2521,2525
+< 	leaq	(,%rsi,4), %rax
+< 	addq	(%rdi), %rax
+---
+> 	movq	-16(%rbp), %rax
+> 	movq	(%rax), %rax
+> 	movq	-8(%rbp), %rcx
+> 	shlq	$2, %rcx
+> 	addq	%rcx, %rax
+2429d2547
+< 	movq	%rdi, %rbx
+2431c2549,2550
+< 	movq	%rdi, -72(%rbp)
+---
+> 	movq	%rdi, -64(%rbp)
+> 	movq	-64(%rbp), %rbx
+2435c2554
+< 	movq	%rax, -40(%rbp)
+---
+> 	movq	%rax, -56(%rbp)
+2438,2440c2557,2559
+< 	movq	%rax, -32(%rbp)
+< 	leaq	-40(%rbp), %rdi
+< 	leaq	-32(%rbp), %rsi
+---
+> 	movq	%rax, -48(%rbp)
+> 	leaq	-56(%rbp), %rdi
+> 	leaq	-48(%rbp), %rsi
+2442,2444c2561,2564
+< 	testb	%al, %al
+< 	je	.LBB61_2
+< # %bb.1:
+---
+> 	testb	$1, %al
+> 	jne	.LBB61_1
+> 	jmp	.LBB61_2
+> .LBB61_1:
+2448c2568
+< 	movq	%rax, -24(%rbp)
+---
+> 	movq	%rax, -40(%rbp)
+2451,2455c2571,2576
+< 	movq	%rax, -64(%rbp)
+< 	movq	-16(%rbp), %rdx
+< 	movq	%rdx, -56(%rbp)
+< 	movq	-24(%rbp), %rdi
+< 	movq	%rax, %rsi
+---
+> 	movq	%rax, -32(%rbp)
+> 	movq	-16(%rbp), %rax
+> 	movq	%rax, -24(%rbp)
+> 	movq	-40(%rbp), %rdi
+> 	movq	-32(%rbp), %rsi
+> 	movq	-24(%rbp), %rdx
+2457c2578
+< 	movq	%rax, -48(%rbp)
+---
+> 	movq	%rax, -80(%rbp)
+2458a2580,2582
+> 	movq	8(%rbx), %rax
+> 	addq	$-4, %rax
+> 	movq	%rax, 8(%rbx)
+2460,2461d2583
+< 	addq	$-4, %rsi
+< 	movq	%rsi, 8(%rbx)
+2465c2587,2588
+< 	movq	%rax, -80(%rbp)
+---
+> 	movq	%rax, -72(%rbp)
+> 	movq	-72(%rbp), %rax
+2491a2615
+> 	movq	-24(%rbp), %rdi
+2496c2620,2621
+< 	subq	(%rax), %rbx
+---
+> 	movq	(%rax), %rax
+> 	subq	%rax, %rbx
+2521,2523c2646,2648
+< 	movq	%rdi, %rsi
+< 	movq	%rdi, -16(%rbp)
+< 	leaq	-8(%rbp), %rdi
+---
+> 	movq	%rdi, -8(%rbp)
+> 	movq	-8(%rbp), %rsi
+> 	leaq	-16(%rbp), %rdi
+2525c2650
+< 	movq	-8(%rbp), %rax
+---
+> 	movq	-16(%rbp), %rax
+2550a2676
+> 	movq	-24(%rbp), %rdi
+2556a2683,2684
+> 	andb	$1, %al
+> 	movzbl	%al, %eax
+2580,2582c2708,2712
+< 	movq	%rsi, -24(%rbp)
+< 	movq	%rdx, -16(%rbp)
+< 	movq	%rdi, -56(%rbp)
+---
+> 	movq	%rsi, -56(%rbp)
+> 	movq	%rdx, -48(%rbp)
+> 	movq	-64(%rbp), %rax
+> 	movq	%rax, -32(%rbp)
+> 	movq	-32(%rbp), %rdi
+2584,2586c2714,2717
+< 	movq	%rax, -8(%rbp)
+< 	movq	-24(%rbp), %rdi
+< 	movq	%rdi, -40(%rbp)
+---
+> 	movq	%rax, -40(%rbp)
+> 	movq	-56(%rbp), %rax
+> 	movq	%rax, -16(%rbp)
+> 	movq	-16(%rbp), %rdi
+2588,2592c2719,2724
+< 	movq	%rax, -48(%rbp)
+< 	movq	-16(%rbp), %rdx
+< 	movq	%rdx, -32(%rbp)
+< 	movq	-8(%rbp), %rdi
+< 	movq	%rax, %rsi
+---
+> 	movq	%rax, -24(%rbp)
+> 	movq	-48(%rbp), %rax
+> 	movq	%rax, -8(%rbp)
+> 	movq	-40(%rbp), %rdi
+> 	movq	-24(%rbp), %rsi
+> 	movq	-8(%rbp), %rdx
+2594a2727
+> 	movq	-72(%rbp), %rax
+2617a2751,2752
+> 	movq	-16(%rbp), %rdi
+> 	movq	-8(%rbp), %rsi
+2645,2646c2780
+< 	movq	%rsi, -40(%rbp)
+< 	movq	%rdx, -32(%rbp)
+---
+> 	movq	%rsi, -64(%rbp)
+2648c2782,2786
+< 	movq	%rdi, -64(%rbp)
+---
+> 	movq	-24(%rbp), %rax
+> 	movq	%rax, -56(%rbp)
+> 	movq	-72(%rbp), %rax
+> 	movq	%rax, -48(%rbp)
+> 	movq	-48(%rbp), %rdi
+2650a2789,2790
+> 	movq	-64(%rbp), %rax
+> 	movq	%rax, -40(%rbp)
+2652d2791
+< 	movq	%rdi, -56(%rbp)
+2654a2794,2795
+> 	movq	-24(%rbp), %rax
+> 	movq	%rax, -32(%rbp)
+2656d2796
+< 	movq	%rdi, -48(%rbp)
+2662c2802
+< 	movq	-24(%rbp), %rdi
+---
+> 	movq	-56(%rbp), %rdi
+2665a2806
+> 	movq	-80(%rbp), %rax
+2688d2828
+< 	movq	%rdi, %rax
+2690c2830,2832
+< 	movq	%rdi, -16(%rbp)
+---
+> 	movq	-8(%rbp), %rax
+> 	movq	%rax, -16(%rbp)
+> 	movq	-16(%rbp), %rax
+2713d2854
+< 	movq	%rsi, %rbx
+2716c2857,2860
+< 	movq	%rdi, -24(%rbp)
+---
+> 	movq	-32(%rbp), %rbx
+> 	movq	-16(%rbp), %rax
+> 	movq	%rax, -24(%rbp)
+> 	movq	-24(%rbp), %rdi
+2723a2868
+> 	movq	-40(%rbp), %rax
+2749a2895,2897
+> 	movq	-32(%rbp), %rdi
+> 	movq	-24(%rbp), %rsi
+> 	movq	-16(%rbp), %rdx
+2800,2802c2948,2953
+< 	subq	%rdi, %rsi
+< 	sarq	$2, %rsi
+< 	movq	%rsi, -8(%rbp)
+---
+> 	movq	-32(%rbp), %rax
+> 	movq	-24(%rbp), %rcx
+> 	subq	%rcx, %rax
+> 	sarq	$2, %rax
+> 	movq	%rax, -8(%rbp)
+> 	cmpq	$0, -8(%rbp)
+2811,2813c2962,2965
+< 	movq	-8(%rbp), %rax
+< 	shlq	$2, %rax
+< 	addq	-16(%rbp), %rax
+---
+> 	movq	-16(%rbp), %rax
+> 	movq	-8(%rbp), %rcx
+> 	shlq	$2, %rcx
+> 	addq	%rcx, %rax
+2855d3006
+< 	movq	%rdi, %rax
+2856a3008
+> 	movq	-8(%rbp), %rax
+2878,2879c3030,3033
+< 	movq	(%rsi), %rax
+< 	movq	%rax, (%rdi)
+---
+> 	movq	-16(%rbp), %rax
+> 	movq	-8(%rbp), %rcx
+> 	movq	(%rcx), %rcx
+> 	movq	%rcx, (%rax)
+2903a3058
+> 	movq	-24(%rbp), %rdi
+2908c3063,3064
+< 	subq	(%rax), %rbx
+---
+> 	movq	(%rax), %rax
+> 	subq	%rax, %rbx
+2936a3093
+> 	movq	-24(%rbp), %rdi
+2942a3100,3101
+> 	andb	$1, %al
+> 	movzbl	%al, %eax
+2969d3127
+< 	movq	%rsi, %rbx
+2973c3131,3134
+< 	movq	%rsi, (%rdi)
+---
+> 	movq	-40(%rbp), %rdi
+> 	movq	-32(%rbp), %rax
+> 	movq	%rax, (%rdi)
+> 	movq	(%rdi), %r14
+2975c3136
+< 	movq	%rax, %r14
+---
+> 	movq	%rax, %rbx
+2978,2979c3139,3140
+< 	movq	%rbx, %rdi
+< 	movq	%r14, %rsi
+---
+> 	movq	%r14, %rdi
+> 	movq	%rbx, %rsi
+3009,3010c3170
+< 	movq	%rdi, %rbx
+< 	movq	%rsi, -32(%rbp)
+---
+> 	movq	%rsi, -24(%rbp)
+3012,3014c3172,3176
+< 	movq	%rdx, -24(%rbp)
+< 	movq	8(%rdi), %r14
+< 	leaq	-4(%r14), %rdi
+---
+> 	movq	%rdx, -32(%rbp)
+> 	movq	-40(%rbp), %rbx
+> 	movq	8(%rbx), %r14
+> 	movq	8(%rbx), %rdi
+> 	addq	$-4, %rdi
+3020,3022c3182,3185
+< 	addq	$4, 8(%rbx)
+< 	leaq	-32(%rbp), %r14
+< 	movq	%r14, %rdi
+---
+> 	movq	8(%rbx), %rax
+> 	addq	$4, %rax
+> 	movq	%rax, 8(%rbx)
+> 	leaq	-24(%rbp), %rdi
+3024a3188,3189
+> 	movq	8(%rbx), %rsi
+> 	addq	$-8, %rsi
+3026d3190
+< 	leaq	-8(%rdx), %rsi
+3029c3193
+< 	movq	-24(%rbp), %rdi
+---
+> 	movq	-32(%rbp), %rdi
+3032c3196
+< 	movq	%r14, %rdi
+---
+> 	leaq	-24(%rbp), %rdi
+3057d3220
+< 	movq	%rdi, %rax
+3058a3222
+> 	movq	-8(%rbp), %rax
+3079a3244
+> 	movq	-8(%rbp), %rdi
+3107a3273
+> 	movq	-16(%rbp), %rdi
+3112c3278,3279
+< # %bb.1:
+---
+> 	jmp	.LBB82_1
+> .LBB82_1:
+3123a3291
+>                                         # kill: killed $rdx
+3167c3335,3336
+< 	leaq	8(%rdi), %rax
+---
+> 	movq	-8(%rbp), %rax
+> 	addq	$8, %rax
+3192,3193d3360
+< 	movq	%rsi, %r14
+< 	movq	%rdi, %rbx
+3197c3364,3366
+< 	movq	%rdx, %rdi
+---
+> 	movq	-40(%rbp), %r14
+> 	movq	-32(%rbp), %rbx
+> 	movq	-24(%rbp), %rdi
+3199,3200c3368,3369
+< 	movq	%rbx, %rdi
+< 	movq	%r14, %rsi
+---
+> 	movq	%r14, %rdi
+> 	movq	%rbx, %rsi
+3230a3400
+> 	movq	-32(%rbp), %rdi
+3260d3429
+< 	movq	%rdi, %rax
+3261a3431
+> 	movq	-8(%rbp), %rax
+3282c3452,3453
+< 	movq	(%rdi), %rax
+---
+> 	movq	-8(%rbp), %rax
+> 	movq	(%rax), %rax
+3305d3475
+< 	movq	%rsi, %rbx
+3309c3479,3480
+< 	movq	%rdx, %rdi
+---
+> 	movq	-24(%rbp), %rbx
+> 	movq	-16(%rbp), %rdi
+3341a3513
+> 	movq	-40(%rbp), %rdi
+3378d3549
+< 	movq	%rdi, %rax
+3379a3551
+> 	movq	-8(%rbp), %rax
+3399d3570
+< 	movq	%rsi, %rax
+3401a3573
+> 	movq	-8(%rbp), %rax
+3425a3598,3600
+> 	movq	-32(%rbp), %rdi
+> 	movq	-24(%rbp), %rsi
+> 	movq	-16(%rbp), %rdx
+3451,3453c3626,3631
+< 	subq	%rdi, %rsi
+< 	sarq	$2, %rsi
+< 	movq	%rsi, -8(%rbp)
+---
+> 	movq	-32(%rbp), %rax
+> 	movq	-24(%rbp), %rcx
+> 	subq	%rcx, %rax
+> 	sarq	$2, %rax
+> 	movq	%rax, -8(%rbp)
+> 	cmpq	$0, -8(%rbp)
+3455a3634
+> 	xorl	%eax, %eax
+3456a3636,3639
+> 	subq	-8(%rbp), %rax
+> 	shlq	$2, %rax
+> 	addq	%rax, %rdi
+> 	movq	-24(%rbp), %rsi
+3459,3460d3641
+< 	subq	%rdx, %rdi
+< 	movq	-24(%rbp), %rsi
+3462a3644
+> 	xorl	%ecx, %ecx
+3464c3646
+< 	movq	-8(%rbp), %rcx
+---
+> 	subq	-8(%rbp), %rcx
+3466c3648
+< 	subq	%rcx, %rax
+---
+> 	addq	%rcx, %rax
+3488,3490c3670,3674
+< 	movq	%rdi, -24(%rbp)
+< 	movq	%rsi, -16(%rbp)
+< 	movq	%rdx, -8(%rbp)
+---
+> 	movq	%rdi, -16(%rbp)
+> 	movq	%rsi, -8(%rbp)
+> 	movq	%rdx, -24(%rbp)
+> 	movq	-16(%rbp), %rdi
+> 	movq	-8(%rbp), %rsi
+3518,3521c3702,3705
+< 	movq	%rdi, %rbx
+< 	movq	%rdi, -32(%rbp)
+< 	movq	(%rdi), %rsi
+< 	movq	16(%rdi), %rdx
+---
+> 	movq	%rdi, -24(%rbp)
+> 	movq	-24(%rbp), %rbx
+> 	movq	(%rbx), %rsi
+> 	movq	16(%rbx), %rdx
+3524a3709
+> 	movq	%rbx, %rdi
+3527c3712,3713
+< # %bb.1:
+---
+> 	jmp	.LBB95_1
+> .LBB95_1:
+3539c3725
+< 	movl	%edx, -20(%rbp)
+---
+> 	movl	%edx, -28(%rbp)
+3541a3728
+> # %bb.3:
+3586a3774,3775
+> 	movq	-16(%rbp), %rdi
+> 	movq	-8(%rbp), %rsi
+3630a3820
+> 	movq	-8(%rbp), %rdi
+3653a3844
+> 	movq	-8(%rbp), %rdi
