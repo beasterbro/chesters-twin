@@ -119,6 +119,9 @@ all:
 	clang++ compiled/all/toy_out_all.o -o compiled/all/toy_out_all
 	./compiled/all/toy_out_all test/test1.txt
 
+
+phony_diff: diff
+
 diff: 
 	@echo "\033[38mGenerating diff files"
 	mkdir -p ./diff
