@@ -1,7 +1,6 @@
-main: toy_file.o opt1 opt2 code ir transf analy util all diff
+main: toy_file.o code ir opt1 opt2 analy transf util all diff
 
 clean:
-	#rm toy_input toy_command toy_file toy_out* toy_out_opt* toy_out_opt2.*
 	rm -rf ./compiled ./diff ./dotfiles
 
 # Basic C code compilations without any optimizations
@@ -13,7 +12,7 @@ toy_command.o: C++_test_code/toy_command.cpp
 	@echo "\033[93mbase"
 	mkdir -p ./compiled/base
 	g++ C++_test_code/toy_command.cpp -o compiled/base/toy_command
-	./compiled/base/toy_command 74 92 9 1 39 182 9 2 4 75 8 2 4 101 73
+	./compiled/base/toy_command 74 92 9 1 39 182 9 2 4 75 8 2 4 101 73 192387 32 139 013 13 813 7913 283 49817 15897 351 3 4 595 103 4598 13 871 91 912919817317823612312386 68127638 87123 612786 871636 86 8712386 1872637616 1 1 23762 6362 727 83 2 38383 89292
 
 toy_file.o: C++_test_code/toy_file.cpp test/test1.txt
 	@echo "\033[93mbase"
