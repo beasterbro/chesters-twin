@@ -1,5 +1,0 @@
-digraph "Dominator tree for '_ZNSt6vectorIiSaIiEE16_Temporary_value6_M_ptrEv' function" {
-	label="Dominator tree for '_ZNSt6vectorIiSaIiEE16_Temporary_value6_M_ptrEv' function";
-
-	Node0x1476400 [shape=record,label="{%1:\l  %2 = alloca %\"struct.std::vector\<int, std::allocator\<int\>\l... \>::_Temporary_value\"*, align 8\l  store %\"struct.std::vector\<int, std::allocator\<int\> \>::_Temporary_value\"*\l... %0, %\"struct.std::vector\<int, std::allocator\<int\> \>::_Temporary_value\"** %2,\l... align 8\l  %3 = load %\"struct.std::vector\<int, std::allocator\<int\>\l... \>::_Temporary_value\"*, %\"struct.std::vector\<int, std::allocator\<int\>\l... \>::_Temporary_value\"** %2, align 8\l  %4 = getelementptr inbounds %\"struct.std::vector\<int, std::allocator\<int\>\l... \>::_Temporary_value\", %\"struct.std::vector\<int, std::allocator\<int\>\l... \>::_Temporary_value\"* %3, i32 0, i32 1\l  %5 = bitcast %\"union.std::aligned_storage\<4, 4\>::type\"* %4 to i32*\l  ret i32* %5\l}"];
-}
