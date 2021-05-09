@@ -121,6 +121,7 @@ all:
 
 
 phony_diff: diff
+	echo "phony"
 
 diff: 
 	@echo "\033[38mGenerating diff files"
