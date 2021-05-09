@@ -119,17 +119,13 @@ all:
 	clang++ compiled/all/toy_out_all.o -o compiled/all/toy_out_all
 	./compiled/all/toy_out_all test/test1.txt
 
-
-phony_diff: diff
-	echo "phony"
-
 diff: 
 	@echo "\033[38mGenerating diff files"
 	mkdir -p ./diff
-	diff compiled/assembly/toy_out_assembly.s compiled/ir/toy_out_ir.s >> diff/ir_diff.txt
-	diff compiled/assembly/toy_out_assembly.s compiled/opt1/toy_out_opt1.s >> diff/opt1_diff.txt
-	diff compiled/assembly/toy_out_assembly.s compiled/opt2/toy_out_opt2.s >> diff/opt2_diff.txt
-	diff compiled/assembly/toy_out_assembly.s compiled/analysis/toy_out_analy.s >> diff/analysis_diff.txt
-	diff compiled/assembly/toy_out_assembly.s compiled/transform/toy_out_transf.s >> diff/transform_diff.txt
-	diff compiled/assembly/toy_out_assembly.s compiled/utility/toy_out_util.s >> diff/utility_diff.txt
-	diff compiled/assembly/toy_out_assembly.s compiled/all/toy_out_all.s >> diff/all_diff.txt
+	diff compiled/assembly/toy_out_assembly.s compiled/ir/toy_out_ir.s > diff/ir_diff.txt
+	diff compiled/assembly/toy_out_assembly.s compiled/opt1/toy_out_opt1.s > diff/opt1_diff.txt
+	diff compiled/assembly/toy_out_assembly.s compiled/opt2/toy_out_opt2.s > diff/opt2_diff.txt
+	diff compiled/assembly/toy_out_assembly.s compiled/analysis/toy_out_analy.s > diff/analysis_diff.txt
+	diff compiled/assembly/toy_out_assembly.s compiled/transform/toy_out_transf.s > diff/transform_diff.txt
+	diff compiled/assembly/toy_out_assembly.s compiled/utility/toy_out_util.s > diff/utility_diff.txt
+	diff compiled/assembly/toy_out_assembly.s compiled/all/toy_out_all.s > diff/all_diff.txt
