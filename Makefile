@@ -73,8 +73,10 @@ opt2:
 analy:
 	@echo "\033[37m analy"
 	mkdir -p ./compiled/analysis
+	mkdir -p ./dotfiles/analysis_dotfiles
 	clang++ -emit-llvm -S C++_test_code/toy_file.cpp -o compiled/analysis/toy_out_analy.ll -Xclang -disable-O0-optnone 
-	opt -S compiled/analysis/toy_out_analy.ll -o compiled/analysis/toy_out_analy.ll -dot-callgraph -dot-cfg -dot-cfg-only -dot-dom -postdomtree -print-alias-sets -print-callgraph-sccs -print-callgraph -print-cfg-sccs -print-dom-info -print-module -print-function -aa-eval
+	opt -S compiled/analysis/toy_out_analy.ll -o compiled/analysis/toy_out_analy.ll -dot-callgraph -dot-cfg -dot-cfg-only -dot-dom -postdomtree -print-alias-sets -print-callgraph-sccs -print-callgraph -print-cfg-sccs -print-dom-info -print-function -aa-eval
+	mv *.dot dotfiles/analysis_dotfiles
 	llvm-as compiled/analysis/toy_out_analy.ll -o compiled/analysis/toy_out_analy.bc
 	llc compiled/analysis/toy_out_analy.bc -o compiled/analysis/toy_out_analy.s
 	clang++ -c compiled/analysis/toy_out_analy.s -o compiled/analysis/toy_out_analy.o
@@ -106,8 +108,10 @@ util:
 all:
 	@echo "\033[38m all"
 	mkdir -p ./compiled/all
-	clang++ -emit-llvm -S C++_test_code/toy_file.cpp -o compiled/all/toy_out_all.ll -Xclang -disable-O0-optnone -dot-callgraph -Oz -dot-cfg -dot-cfg-only -dot-dom -postdomtree -print-alias-sets -print-callgraph-sccs -print-callgraph -print-cfg-sccs -print-dom-info -print-module -print-function -aa-eval
-	opt -S compiled/all/toy_out_all.ll -o compiled/all/toy_out_all.ll -strip-nondebug -tailcallelim -sink -strip -lowerinvoke -sroa -licm -loop-rotate 
+	mkdir -p ./dotfiles/all_run_dotfiles
+	clang++ -emit-llvm -S C++_test_code/toy_file.cpp -o compiled/all/toy_out_all.ll -Xclang -disable-O0-optnone -Oz
+	opt -S compiled/all/toy_out_all.ll -o compiled/all/toy_out_all.ll -strip-nondebug -tailcallelim -sink -strip -lowerinvoke -sroa -licm -loop-rotate -dot-callgraph -dot-cfg -dot-cfg-only -dot-dom -postdomtree -print-alias-sets -print-callgraph-sccs -print-callgraph -print-cfg-sccs -print-dom-info -print-function -aa-eval
+	mv *.dot dotfiles/all_run_dotfiles
 	opt -S compiled/all/toy_out_all.ll -o compiled/all/toy_out_all.ll
 	llvm-as compiled/all/toy_out_all.ll -o compiled/all/toy_out_all.bc
 	llc compiled/all/toy_out_all.bc -o compiled/all/toy_out_all.s
