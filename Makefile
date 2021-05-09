@@ -122,10 +122,10 @@ all:
 diff: 
 	@echo "\033[38mGenerating diff files"
 	mkdir -p ./diff
-	diff compiled/assembly/toy_out_assembly.s compiled/ir/toy_out_ir.s > diff/ir_diff.txt
-	diff compiled/assembly/toy_out_assembly.s compiled/opt1/toy_out_opt1.s > diff/opt1_diff.txt
-	diff compiled/assembly/toy_out_assembly.s compiled/opt2/toy_out_opt2.s > diff/opt2_diff.txt
-	diff compiled/assembly/toy_out_assembly.s compiled/analysis/toy_out_analy.s > diff/analysis_diff.txt
-	diff compiled/assembly/toy_out_assembly.s compiled/transform/toy_out_transf.s > diff/transform_diff.txt
-	diff compiled/assembly/toy_out_assembly.s compiled/utility/toy_out_util.s > diff/utility_diff.txt
-	diff compiled/assembly/toy_out_assembly.s compiled/all/toy_out_all.s > diff/all_diff.txt
+	diff compiled/ir/toy_out_ir.s compiled/assembly/toy_out_assembly.s
+	diff compiled/opt1/toy_out_opt1.s compiled/assembly/toy_out_assembly.s
+	diff compiled/opt2/toy_out_opt2.s compiled/assembly/toy_out_assembly.s
+	diff compiled/assembly/toy_out_assembly.s compiled/analysis/toy_out_analy.s
+	diff compiled/assembly/toy_out_assembly.s compiled/transform/toy_out_transf.s
+	diff compiled/assembly/toy_out_assembly.s compiled/utility/toy_out_util.s
+	diff compiled/assembly/toy_out_assembly.s compiled/all/toy_out_all.s
